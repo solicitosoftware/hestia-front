@@ -1,0 +1,27 @@
+.sidebar {
+  @apply bg-white min-h-screen h-full md:block shadow-xl px-3 w-32 md:w-60 lg:w-60 overflow-x-hidden transition-transform duration-300 ease-in-out;
+}
+
+.profile {
+  @apply space-y-6 md:space-y-10 mt-10;
+}
+
+.image {
+  @apply w-10 md:w-16 rounded-full mx-auto;
+}
+
+.user-rol {
+  @apply font-medium text-xs md:text-sm text-center text-cyan-600;
+}
+
+.rol {
+  @apply text-xs text-gray-500 text-center;
+}
+
+.menu {
+  @apply flex flex-col space-y-2;
+}
+
+.menu-item {
+  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-cyan-600 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out;
+}

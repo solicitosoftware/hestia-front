@@ -1,0 +1,35 @@
+.container {
+  @apply flex flex-wrap justify-evenly;
+}
+
+.card {
+  @apply flex flex-col justify-between m-2 relative bg-violet-400 rounded-lg w-40 md:w-48;
+}
+
+.background {
+  @apply absolute bottom-0 left-0 mb-8 opacity-10;
+}
+
+.container-image {
+  @apply relative pt-5 px-5 md:pt-10 md:px-10;
+}
+
+.image {
+  @apply h-14 w-14 md:w-28 md:h-28 rounded-full mx-auto;
+}
+
+.description {
+  @apply relative text-white px-4 pb-4 mt-4 md:px-6 md:pb-6 md:mt-6;
+}
+
+.name {
+  @apply block opacity-80 w-28 md:w-36 text-xs md:text-base;
+}
+
+.category {
+  @apply block font-semibold text-xs md:text-lg mr-2 md:mr-1;
+}
+
+.price {
+  @apply block bg-white rounded-full text-cyan-600 text-xs font-bold px-2 py-1 md:px-3 md:py-2 leading-none items-center;
+}
