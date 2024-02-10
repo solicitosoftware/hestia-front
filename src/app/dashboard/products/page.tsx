@@ -5,7 +5,7 @@ const getProducts = async (
   offset: number = 0
 ): Promise<ProductType[]> => {
   const data: ProductType[] = await fetch(
-    `https://us-central1-elprincipepruebas.cloudfunctions.net/productos/getProductos/${0}?limit=${limit}`
+    `https://us-central1-elprincipepruebas.cloudfunctions.net/productos/getProductos/${offset}?limit=${limit}`
   )
     .then((res) => res.json())
     .catch((error) => {

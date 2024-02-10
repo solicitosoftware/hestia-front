@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
+import { namePath } from "./interfaces";
 
 export default function HomePage() {
-  redirect("/dashboard/main");
+  redirect(namePath.pathMain);
 }

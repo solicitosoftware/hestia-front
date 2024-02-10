@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { ProductType } from "..";
-import style from "./ProductStyle.module.css";
+import style from "../styles/ProductStyle.module.css";
 import Link from "next/link";
+import { formatPrice } from "@/utils";
+import { namePath } from "@/app/interfaces";
 
 interface Props {
   product: ProductType;
@@ -30,7 +32,7 @@ export const ProductCard = ({ product }: Props) => {
         />
       </svg>
       <div id="container-image" className={style["container-image"]}>
-        <Link prefetch href={`/product/${product.id}`}>
+        <Link prefetch href={`${namePath.pathProducts}${product.id}`}>
           <Image
             height={100}
             width={100}
@@ -45,7 +47,7 @@ export const ProductCard = ({ product }: Props) => {
         <span className={style.name}>{product.nombre}</span>
         <div className="flex mt-1 justify-between">
           <span className={style.category}>{product.categoria.nombre}</span>
-          <span className={style.price}>${product.precio}</span>
+          <span className={style.price}>{formatPrice(product.precio)}</span>
         </div>
       </div>
     </div>

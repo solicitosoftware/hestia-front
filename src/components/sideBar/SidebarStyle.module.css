@@ -11,7 +11,7 @@
 }
 
 .user-rol {
-  @apply font-medium text-xs md:text-sm text-center text-cyan-600;
+  @apply font-medium text-[#0FA3C7] text-xs md:text-sm text-center;
 }
 
 .rol {
@@ -23,5 +23,5 @@
 }
 
 .menu-item {
-  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-cyan-600 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out;
+  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-[#0FA3C7] hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out;
 }

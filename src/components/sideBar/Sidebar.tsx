@@ -4,20 +4,21 @@ import style from "./SidebarStyle.module.css";
 import { CiFries } from "react-icons/ci";
 import { BiCategoryAlt } from "react-icons/bi";
 import { IoHomeOutline } from "react-icons/io5";
+import { namePath } from "@/app/interfaces";
 
 const menuItems = [
   {
-    path: "/dashboard/main",
+    path: namePath.pathMain,
     title: "Inicio",
     icon: <IoHomeOutline size={20} />,
   },
   {
-    path: "/dashboard/categories",
+    path: namePath.pathCategories,
     title: "Categorias",
     icon: <BiCategoryAlt size={20} />,
   },
   {
-    path: "/dashboard/products",
+    path: namePath.pathProducts,
     title: "Productos",
     icon: <CiFries size={20} />,
   },
