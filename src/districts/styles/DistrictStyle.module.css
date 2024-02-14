@@ -1,0 +1,43 @@
+.link {
+  @apply relative inline-block w-full lg:w-[600px] transform transition-transform duration-300 ease-in-out;
+}
+
+.container {
+  @apply relative flex h-36 md:h-60 justify-center overflow-hidden rounded-lg;
+}
+
+.container-image {
+  @apply w-full flex justify-center transform transition-transform duration-500 ease-in-out hover:scale-110;
+}
+
+.gradient {
+  @apply absolute bg-gradient-to-b from-cyan-300 to-lime-500 opacity-40 inset-0 z-0;
+}
+
+.image {
+  @apply w-full h-36 md:h-60 object-fill;
+}
+
+.position-desciption {
+  @apply absolute bottom-0 mb-3;
+}
+
+.container-desciption {
+  @apply flex space-x-5 overflow-hidden rounded-lg bg-white/70 px-4 py-1 shadow;
+}
+
+.desciption {
+  @apply flex items-center font-medium text-gray-500;
+}
+
+.icon {
+  @apply mr-2 h-3 md:h-6 w-3 md:w-6 fill-current;
+}
+
+.amount {
+  @apply text-xs md:text-lg;
+}
+
+.name {
+  @apply absolute left-0 top-0 z-10 ml-3 mt-3 inline-flex select-none rounded-lg bg-[#0FA3C7] p-2 md:px-3 text-xs md:text-base font-semibold uppercase text-white;
+}

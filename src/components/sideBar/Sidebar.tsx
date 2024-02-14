@@ -1,10 +1,13 @@
 import Image from "next/image";
 import { SidebarMenuItem } from "..";
-import style from "./SidebarStyle.module.css";
-import { CiFries } from "react-icons/ci";
-import { BiCategoryAlt } from "react-icons/bi";
+import style from "./styles/SidebarStyle.module.css";
+import { CiFries, CiShoppingCart } from "react-icons/ci";
+import { GrCreditCard } from "react-icons/gr";
+import { LuUserCheck } from "react-icons/lu";
+import { VscCompass } from "react-icons/vsc";
+import { BsBuildings } from "react-icons/bs";
 import { IoHomeOutline } from "react-icons/io5";
-import { namePath } from "@/app/interfaces";
+import { namePath } from "@/app/constants";
 
 const menuItems = [
   {
@@ -13,14 +16,34 @@ const menuItems = [
     icon: <IoHomeOutline size={20} />,
   },
   {
-    path: namePath.pathCategories,
-    title: "Categorias",
-    icon: <BiCategoryAlt size={20} />,
+    path: namePath.pathDistricts,
+    title: "Zonas",
+    icon: <VscCompass size={20} />,
   },
   {
     path: namePath.pathProducts,
     title: "Productos",
     icon: <CiFries size={20} />,
+  },
+  {
+    path: namePath.pathShopping,
+    title: "Compras",
+    icon: <CiShoppingCart size={20} />,
+  },
+  {
+    path: namePath.pathApartments,
+    title: "Apartamentos",
+    icon: <BsBuildings size={20} />,
+  },
+  {
+    path: namePath.pathPayments,
+    title: "Pagos",
+    icon: <GrCreditCard size={20} />,
+  },
+  {
+    path: namePath.pathBookings,
+    title: "Reservas",
+    icon: <LuUserCheck size={20} />,
   },
 ];
 

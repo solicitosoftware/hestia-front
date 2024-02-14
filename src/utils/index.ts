@@ -1,4 +1,4 @@
-export function formatPrice(val: number) {
+export const formatPrice = (val: number) => {
   try {
     if (val === 0) `$ ${val}`;
     else val > 0;
@@ -8,4 +8,4 @@ export function formatPrice(val: number) {
   } catch (error) {
     console.error(error);
   }
-}
+};

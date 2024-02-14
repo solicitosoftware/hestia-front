@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { namePath } from "../../../interfaces";
+import { namePath } from "../../../constants";
 import style from "../../../styles/NotFoundStyle.module.css";
 
 export default function NotFound() {

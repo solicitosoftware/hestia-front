@@ -1,7 +1,7 @@
 "use client"; // Error components must be Client Components
 
 import Link from "next/link";
-import { namePath } from "../../interfaces";
+import { namePath } from "../../constants";
 
 export default function Error({
   error,

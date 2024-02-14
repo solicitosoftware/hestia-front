@@ -1,4 +1,9 @@
-import { Product, ProductType } from "../../../products";
+import { Product, ProductType } from "@/products";
+
+export const metadata = {
+  title: "Productos",
+  description: "Listado de Productos",
+};
 
 const getProducts = async (
   limit: number = 10,
@@ -18,7 +23,7 @@ const getProducts = async (
 export default async function ProductsPage() {
   const products = await getProducts(50);
   return (
-    <div className=" flex flex-col">
+    <div className="flex flex-col">
       <Product products={products} />
     </div>
   );

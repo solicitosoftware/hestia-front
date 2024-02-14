@@ -1,15 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import { ProductType } from "..";
 import style from "../styles/ProductStyle.module.css";
 import Link from "next/link";
 import { formatPrice } from "@/utils";
-import { namePath } from "@/app/interfaces";
+import { namePath } from "@/app/constants";
+import { useAppDispatch } from "@/redux/hooks";
+import { addProduct } from "@/redux/product/productSlice";
 
 interface Props {
   product: ProductType;
 }
 
 export const ProductCard = ({ product }: Props) => {
+  const dispatch = useAppDispatch();
+
+  const addToCart = (product: ProductType) => {
+    dispatch(addProduct(product));
+  };
+
   return (
     <div id="card" className={style.card}>
       <svg className={style.background} viewBox="0 0 375 283" fill="none">
@@ -47,7 +57,9 @@ export const ProductCard = ({ product }: Props) => {
         <span className={style.name}>{product.nombre}</span>
         <div className="flex mt-1 justify-between">
           <span className={style.category}>{product.categoria.nombre}</span>
-          <span className={style.price}>{formatPrice(product.precio)}</span>
+          <button onClick={() => addToCart(product)}>
+            <span className={style.price}>{formatPrice(product.precio)}</span>
+          </button>
         </div>
       </div>
     </div>

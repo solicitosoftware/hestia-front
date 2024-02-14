@@ -3,7 +3,7 @@ import { ProductType } from "..";
 import style from "../styles/ProductDetailStyle.module.css";
 import { formatPrice } from "@/utils";
 import Link from "next/link";
-import { namePath } from "@/app/interfaces";
+import { namePath } from "@/app/constants";
 
 interface Props {
   product: ProductType;
@@ -21,7 +21,7 @@ export const ProductCardDetail = ({ product }: Props) => {
       />
       <div className={style.detail}>
         <h1 className={style.name}>{product?.nombre}</h1>
-        <Link href={`${namePath.pathCategories}${product?.categoria.id}`}>
+        <Link href={`${namePath.pathDistricts}${product?.categoria.id}`}>
           <span className={style.category}>{product?.categoria.nombre}</span>
         </Link>
         <span className={style.description}>{product?.descripcion}</span>

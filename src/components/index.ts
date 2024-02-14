@@ -1,6 +1,6 @@
-import { Sidebar } from "./sideBar/Sidebar";
+import { Sidebar } from "./sidebar/Sidebar";
 
 //Client Components
-import { SidebarMenuItem } from "./sideBar/SidebarMenuItem";
+import { SidebarMenuItem } from "./sidebar/SidebarMenuItem";
 
 export { Sidebar, SidebarMenuItem };

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import style from "./SidebarStyle.module.css";
+import style from "./styles/SidebarStyle.module.css";
 
 interface MenuItemProps {
   path: string;
