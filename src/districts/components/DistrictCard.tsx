@@ -17,7 +17,7 @@ export const DistrictCard = ({ district }: Props) => {
       >
         <div className={style.container}>
           <div className={style["container-image"]}>
-            <div className={style.gradient} />
+            {/* <div className={style.gradient} /> */}
             <Image
               className={style.image}
               height={250}

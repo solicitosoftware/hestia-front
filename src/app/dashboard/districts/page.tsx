@@ -7,7 +7,7 @@ export const metadata = {
 
 const getDistricts = async (): Promise<DistrictType[]> => {
   const data: DistrictType[] = await fetch(
-    `http://localhost:3000/api/districts`,
+    `http://localhost:3000/api/v1/districts`,
     {
       next: {
         revalidate: 10,

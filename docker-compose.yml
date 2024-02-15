@@ -1,0 +1,14 @@
+version: "1"
+
+services:
+  hestiaDB:
+    image: postgres:15.3
+    container_name: hestia-db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=hestia
+      - POSTGRES_PASSWORD=solicito2023*hestia
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
