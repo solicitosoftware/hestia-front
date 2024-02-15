@@ -1,5 +1,7 @@
 # Development
 
+View > command Palette > Markdown
+
 Steps to launch the application in development
 
 1. Raise the Postgres DB
@@ -15,7 +17,8 @@ yarn
 ```
 
 3. Replace environment variables
-4. Run the development server:
+4. Run commands Prisma
+5. Run the development server:
 
 ```
 yarn dev
@@ -25,8 +28,15 @@ yarn dev
 
 ```
 npx prisma init
-npx prisma migrate dev
+npx prisma migrate dev --name dev
 npx prisma generate
+```
+
+IMPORTANTE !!
+
+```
+npx prisma db pull (Only if the DB already exists to download the models)
+npx prisma db push (always the structure of the DB changes)
 ```
 
 # Recommended versions
@@ -47,3 +57,10 @@ Open [https://gist.github.com/klerith/2d46749155918952b593e952dc7cf5c8](https://
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 The project home page is located at `src/app/page.tsx`.
+
+# Commands Snippets
+
+```
+Command: prc  Archive: Page.tsx
+Command: rafc Archive: Component.tsx
+```

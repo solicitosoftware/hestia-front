@@ -17,3 +17,14 @@ model characteristics {
   createdAt   DateTime @default(now()) @map(name: "created_at")
   updatedAt   DateTime @updatedAt @map(name: "updated_at")
 }
+
+model companies {
+  id        Int      @id @default(autoincrement())
+  name      String
+  nit       String   @unique
+  email     String
+  phone     Int?
+  address   String?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+}

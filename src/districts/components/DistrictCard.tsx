@@ -11,7 +11,7 @@ interface Props {
 export const DistrictCard = ({ district }: Props) => {
   return (
     <Link
-      href={`${namePath.pathDistricts}${district.id}`}
+      href={`${namePath.pathDistricts}/${district.id}`}
       className={style.link}
     >
       <div className={style.container}>
@@ -29,7 +29,7 @@ export const DistrictCard = ({ district }: Props) => {
           <div className={style["position-desciption"]}>
             <div className={style["container-desciption"]}>
               {district.description.map((desciption) => (
-                <p className={style.desciption}>
+                <p key={desciption.name} className={style.desciption}>
                   <svg
                     className={style.icon}
                     xmlns="http://www.w3.org/2000/svg"

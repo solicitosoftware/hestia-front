@@ -60,7 +60,7 @@ export const Sidebar = () => {
               height={40}
               className={style.image}
             />
-            <div id="user-rol">
+            <div id="user-rol" className="flex flex-col">
               <h2 className={style["user-rol"]}>Carlos Soto</h2>
               <p className={style.rol}>Administrator</p>
             </div>

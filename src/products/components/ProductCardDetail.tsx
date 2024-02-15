@@ -21,7 +21,7 @@ export const ProductCardDetail = ({ product }: Props) => {
       />
       <div className={style.detail}>
         <h1 className={style.name}>{product?.nombre}</h1>
-        <Link href={`${namePath.pathDistricts}${product?.categoria.id}`}>
+        <Link href={`${namePath.pathDistricts}/${product?.categoria.id}`}>
           <span className={style.category}>{product?.categoria.nombre}</span>
         </Link>
         <span className={style.description}>{product?.descripcion}</span>

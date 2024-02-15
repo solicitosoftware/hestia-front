@@ -42,7 +42,7 @@ export const ProductCard = ({ product }: Props) => {
         />
       </svg>
       <div id="container-image" className={style["container-image"]}>
-        <Link prefetch href={`${namePath.pathProducts}${product.id}`}>
+        <Link prefetch href={`${namePath.pathProducts}/${product.id}`}>
           <Image
             height={100}
             width={100}

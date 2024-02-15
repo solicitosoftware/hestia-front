@@ -1,0 +1,15 @@
+.position {
+  @apply absolute z-50 left-11 p-2;
+}
+
+.popup {
+  @apply rounded-md bg-white px-3 py-2 text-xs font-medium text-gray-600 drop-shadow-lg;
+}
+
+.container-point {
+  @apply absolute inset-0 -left-1 flex items-center;
+}
+
+.point {
+  @apply h-2 w-2 rotate-45 bg-white;
+}
