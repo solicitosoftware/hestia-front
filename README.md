@@ -14,10 +14,19 @@ docker compose up -d
 yarn
 ```
 
-3. Run the development server:
+3. Replace environment variables
+4. Run the development server:
 
 ```
 yarn dev
+```
+
+# Prisma Commands
+
+```
+npx prisma init
+npx prisma migrate dev
+npx prisma generate
 ```
 
 # Recommended versions

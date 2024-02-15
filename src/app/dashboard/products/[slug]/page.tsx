@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: { id: string };
+  params: { slug: string };
 }
 
 export async function generateStaticParams() {
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const product = await getProduct(params.id);
+    const product = await getProduct(params.slug);
 
     return {
       title: `${product?.nombre}`,
@@ -52,7 +52,7 @@ const getProduct = async (id: string): Promise<ProductType> => {
 };
 
 export default async function ProductDetailPage({ params }: Props) {
-  const product = await getProduct(params.id);
+  const product = await getProduct(params.slug);
 
   return (
     <div className="flex items-center justify-center h-full">

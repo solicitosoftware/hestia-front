@@ -5,7 +5,11 @@ interface Props {
 }
 
 export const District = ({ districts }: Props) => {
-  return districts?.map((districts) => (
-    <DistrictCard key={districts.id} district={districts} />
-  ));
+  return (
+    <div className="flex flex-wrap">
+      {districts?.map((districts) => (
+        <DistrictCard key={districts.id} district={districts} />
+      ))}
+    </div>
+  );
 };
