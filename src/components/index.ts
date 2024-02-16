@@ -1,7 +1,7 @@
-import { Sidebar } from "@/components/sidebar/Sidebar";
-import { Popup } from "@/components/popup/Popup";
+import { Sidebar } from "./sidebar/Sidebar";
+import { Popup } from "./popup/Popup";
 
 //Client Components
-import { SidebarMenuItem } from "@/components/sidebar/SidebarMenuItem";
+import { SidebarMenuItem } from "./sidebar/SidebarMenuItem";
 
 export { Sidebar, SidebarMenuItem, Popup };
