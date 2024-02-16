@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components";
+import { Sidebar } from "../components";
 import Link from "next/link";
 import { namePath } from "./constants";
 import style from "./styles/NotFoundStyle.module.css";
