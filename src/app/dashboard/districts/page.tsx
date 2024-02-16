@@ -1,4 +1,5 @@
-import { District, DistrictType } from "@/districts";
+import { District } from "@/districts";
+import prisma from "@/lib/prisma";
 
 export const metadata = {
   title: "Zonas",
@@ -6,9 +7,11 @@ export const metadata = {
 };
 
 export default async function DistrictsPage() {
+  const districts = await prisma.districts.findMany();
+
   return (
     <div className="relative mx-auto w-full">
-      <District districts={[]} />
+      <District districts={districts} />
     </div>
   );
 }

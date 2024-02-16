@@ -7,7 +7,7 @@
 /* ProductCard */
 
 .card {
-  @apply flex flex-col justify-between m-2 relative bg-[#0FA3C7] rounded-lg w-40 md:w-[195px];
+  @apply flex flex-col justify-between m-2 relative bg-primary rounded-lg w-40 md:w-[195px];
 }
 
 .background {
@@ -35,5 +35,5 @@
 }
 
 .price {
-  @apply block bg-white rounded-full text-[#E88C16] text-xs font-bold px-2 py-1 md:px-3 md:py-2 leading-none items-center;
+  @apply block bg-white rounded-full text-title text-xs font-bold px-2 py-1 md:px-3 md:py-2 leading-none items-center;
 }

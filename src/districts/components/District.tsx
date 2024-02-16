@@ -1,7 +1,8 @@
-import { DistrictCard, DistrictType } from "..";
+import { districts } from "@prisma/client";
+import { DistrictCard } from "..";
 
 interface Props {
-  districts: DistrictType[];
+  districts: districts[];
 }
 
 export const District = ({ districts }: Props) => {

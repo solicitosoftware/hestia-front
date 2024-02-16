@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ProductType } from "..";
 import style from "../styles/ProductDetailStyle.module.css";
-import { formatPrice } from "@/utils";
+import { formatPrice } from "@/helpers";
 import Link from "next/link";
 import { namePath } from "@/app/constants";
 
@@ -28,7 +28,9 @@ export const ProductCardDetail = ({ product }: Props) => {
         <div className="grid-cols-2 flex group justify-between">
           <div className="font-black flex flex-col">
             <span
-              className={`${product?.estado ? "text-lime-300" : "text-red-300"}
+              className={`${
+                product?.estado ? "text-success-100" : "text-error-100"
+              }
                   text-xs md:text-xl`}
             >
               {product?.estado ? "Disponible" : "No Disponible"}

@@ -1,5 +1,5 @@
 .card {
-  @apply grid rounded-2xl max-w-[185px] md:max-w-[375px] shadow-sm bg-[#0FA3C7] flex-col;
+  @apply grid rounded-2xl max-w-[185px] md:max-w-[375px] shadow-sm bg-primary flex-col;
 }
 
 .image {
@@ -15,7 +15,7 @@
 }
 
 .category {
-  @apply opacity-70 text-sm md:text-lg pt-2 font-semibold;
+  @apply opacity-60 text-success-100 text-sm md:text-lg pt-2 font-semibold;
 }
 
 .description {

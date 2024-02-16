@@ -28,3 +28,9 @@ model companies {
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
 }
+
+model districts {
+  id    Int     @id @default(autoincrement())
+  name  String
+  image String?
+}

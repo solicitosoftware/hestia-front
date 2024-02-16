@@ -7,6 +7,7 @@ import { LuUserCheck } from "react-icons/lu";
 import { VscCompass } from "react-icons/vsc";
 import { BsBuildings } from "react-icons/bs";
 import { IoHomeOutline } from "react-icons/io5";
+import { TbSitemap } from "react-icons/tb";
 import { namePath } from "@/app/constants";
 
 const menuItems = [
@@ -34,6 +35,11 @@ const menuItems = [
     path: namePath.pathApartments,
     title: "Apartamentos",
     icon: <BsBuildings size={20} />,
+  },
+  {
+    path: namePath.pathCharacteristics,
+    title: "Caracteristicas",
+    icon: <TbSitemap size={20} />,
   },
   {
     path: namePath.pathPayments,

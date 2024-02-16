@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
-import { characteristicSchema, idSchema } from "../schemas";
+import { characteristicSchema } from "../schemas";
+import { idSchema } from "../../schemas";
 
 interface Segments {
   params: {

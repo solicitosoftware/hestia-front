@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ProductType } from "..";
 import style from "../styles/ProductStyle.module.css";
 import Link from "next/link";
-import { formatPrice } from "@/utils";
+import { formatPrice } from "@/helpers";
 import { namePath } from "@/app/constants";
 import { useAppDispatch } from "@/redux/hooks";
 import { addProduct } from "@/redux/product/productSlice";

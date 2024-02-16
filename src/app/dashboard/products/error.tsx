@@ -20,7 +20,7 @@ export default function Error({
       </div>
       <div className="mt-10 text-center text-white font-semibold">
         <button>
-          <span className=" px-8 py-3 bg-[#0FA3C7] rounded-md">
+          <span className=" px-8 py-3 bg-primary rounded-md">
             <Link href={namePath.pathMain}>Ir al Inicio</Link>
           </span>
         </button>

@@ -11,11 +11,11 @@
 }
 
 .user-rol {
-  @apply font-medium text-[#0FA3C7] text-xs md:text-sm text-center hidden md:inline;
+  @apply font-medium text-primary text-xs md:text-sm text-center hidden md:inline;
 }
 
 .rol {
-  @apply text-xs text-gray-500 text-center hidden md:inline;
+  @apply text-xs text-title text-center hidden md:inline;
 }
 
 .menu {
@@ -23,7 +23,7 @@
 }
 
 .menu-item {
-  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-gradient-to-r from-[#0FA3C7] to-lime-100 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out;
+  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-gradient-to-r from-primary to-success-200 hover:text-white hover:text-base hover:font-semibold rounded-md transition duration-150 ease-in-out;
 }
 
 .menu-title {

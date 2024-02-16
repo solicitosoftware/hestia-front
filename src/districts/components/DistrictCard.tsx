@@ -1,11 +1,12 @@
 import Image from "next/image";
 import style from "../styles/DistrictStyle.module.css";
 import Link from "next/link";
-import { DistrictType } from "../interfaces/district";
 import { namePath } from "@/app/constants";
+import { districts } from "@prisma/client";
+import city from "../../../public/cityDefault.jpg";
 
 interface Props {
-  district: DistrictType;
+  district: districts;
 }
 
 export const DistrictCard = ({ district }: Props) => {
@@ -21,11 +22,11 @@ export const DistrictCard = ({ district }: Props) => {
             className={style.image}
             height={250}
             width={380}
-            src={district.image}
+            src={district.image ?? city.src}
             alt={district.name}
           />
         </div>
-        {district.description.length !== 0 && (
+        {/* {district.description.length !== 0 && (
           <div className={style["position-desciption"]}>
             <div className={style["container-desciption"]}>
               {district.description.map((desciption) => (
@@ -42,7 +43,7 @@ export const DistrictCard = ({ district }: Props) => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
         <span className={style.name}>{district.name}</span>
       </div>
     </Link>
