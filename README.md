@@ -62,5 +62,5 @@ The project home page is located at `src/app/page.tsx`.
 
 ```
 Command: prc  Archive: Page.tsx
-Command: rafc Archive: Component.tsx
+Command: rafce Archive: Component.tsx
 ```

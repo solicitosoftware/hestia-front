@@ -1,15 +1,15 @@
 import Image from "next/image";
-import { ProductType } from "..";
 import style from "../styles/ProductDetailStyle.module.css";
 import { formatPrice } from "@/helpers";
 import Link from "next/link";
 import { namePath } from "@/app/constants";
+import { ProductType } from "../interfaces/product";
 
 interface Props {
   product: ProductType;
 }
 
-export const ProductCardDetail = ({ product }: Props) => {
+const ProductCardDetail = ({ product }: Props) => {
   return (
     <div className={style.card}>
       <Image
@@ -67,3 +67,5 @@ export const ProductCardDetail = ({ product }: Props) => {
     </div>
   );
 };
+
+export default ProductCardDetail;

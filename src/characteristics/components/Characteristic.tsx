@@ -1,19 +1,32 @@
+"use client";
+
 import { characteristics } from "@prisma/client";
-import { CharacteristicCard } from "./CharacteristicCard";
+import CharacteristicCard from "./CharacteristicCard";
+import * as characteristicsApi from "@/characteristics/helpers";
+import { useRouter } from "next/navigation";
 
 interface Props {
   characteristics: characteristics[];
 }
 
-export const Characteristic = ({ characteristics }: Props) => {
+const Characteristic = ({ characteristics }: Props) => {
+  const router = useRouter();
+
+  const onClick = async (id: number, active: boolean) => {
+    await characteristicsApi.updateState(id, active);
+    router.refresh();
+  };
   return (
     <div className="flex flex-wrap m-4 gap-4">
       {characteristics.map((characteristic) => (
         <CharacteristicCard
           key={characteristic.id}
           characteristic={characteristic}
+          onClick={onClick}
         />
       ))}
     </div>
   );
 };
+
+export default Characteristic;

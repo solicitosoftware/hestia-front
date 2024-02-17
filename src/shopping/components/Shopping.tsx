@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/products";
+import Product from "@/products/components/Product";
 import { useAppSelector } from "@/redux/hooks";
 import { selectProduct } from "@/redux/selectors";
 

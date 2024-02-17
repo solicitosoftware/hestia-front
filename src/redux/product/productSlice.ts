@@ -1,4 +1,4 @@
-import { ProductType } from "@/products";
+import { ProductType } from "@/products/interfaces/product";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface ProductState {

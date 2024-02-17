@@ -1,5 +1,5 @@
 import { characteristics } from "@prisma/client";
-import style from "../styles/CharacteristicsStyle.module.css";
+import style from "../styles/Characteristics.module.css";
 import {
   MdOutlineCheckBox,
   MdOutlineCheckBoxOutlineBlank,
@@ -7,13 +7,15 @@ import {
 
 interface Props {
   characteristic: characteristics;
+  onClick: (id: number, active: boolean) => void;
 }
-export const CharacteristicCard = ({ characteristic }: Props) => {
-  const estado = true;
+
+const CharacteristicCard = ({ characteristic, onClick }: Props) => {
   return (
     <div
+      onClick={() => onClick(characteristic.id, !characteristic.active)}
       className={`${style.container} ${
-        estado
+        characteristic.active
           ? "hover:border-lime-300 hover:bg-lime-100"
           : "hover:border-red-300 hover:bg-red-100"
       }`}
@@ -21,7 +23,9 @@ export const CharacteristicCard = ({ characteristic }: Props) => {
       <div>
         <div
           className={`${style.name} ${
-            estado ? "text-primary" : "text-error-100 line-through"
+            characteristic.active
+              ? "text-primary"
+              : "text-error-100 line-through"
           }`}
         >
           {characteristic.name}
@@ -30,11 +34,17 @@ export const CharacteristicCard = ({ characteristic }: Props) => {
       </div>
       <div
         className={`${style.check} ${
-          estado ? "bg-success-200" : "bg-error-100"
+          characteristic.active ? "bg-success-200" : "bg-error-100"
         }`}
       >
-        {estado ? <MdOutlineCheckBox /> : <MdOutlineCheckBoxOutlineBlank />}
+        {characteristic.active ? (
+          <MdOutlineCheckBox />
+        ) : (
+          <MdOutlineCheckBoxOutlineBlank />
+        )}
       </div>
     </div>
   );
 };
+
+export default CharacteristicCard;

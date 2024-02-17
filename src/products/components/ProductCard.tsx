@@ -1,19 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { ProductType } from "..";
 import style from "../styles/ProductStyle.module.css";
 import Link from "next/link";
 import { formatPrice } from "@/helpers";
 import { namePath } from "@/app/constants";
 import { useAppDispatch } from "@/redux/hooks";
 import { addProduct } from "@/redux/product/productSlice";
+import { ProductType } from "../interfaces/product";
 
 interface Props {
   product: ProductType;
 }
 
-export const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product }: Props) => {
   const dispatch = useAppDispatch();
 
   const addToCart = (product: ProductType) => {
@@ -65,3 +65,5 @@ export const ProductCard = ({ product }: Props) => {
     </div>
   );
 };
+
+export default ProductCard;

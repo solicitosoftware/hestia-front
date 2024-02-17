@@ -1,0 +1,15 @@
+.container {
+  @apply max-w-xs sm:max-w-xl lg:max-w-[615px] m-4;
+}
+
+.form {
+  @apply flex flex-col gap-2 lg:gap-4 sm:flex-row;
+}
+
+.input {
+  @apply block p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border border-gray-300 focus-visible:outline-none;
+}
+
+.button {
+  @apply text-white bg-complement hover:bg-gradient-to-r from-complement to-primary font-medium rounded-md text-sm px-4 py-2 lg:ml-1;
+}

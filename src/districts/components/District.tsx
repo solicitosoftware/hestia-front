@@ -1,11 +1,11 @@
 import { districts } from "@prisma/client";
-import { DistrictCard } from "..";
+import DistrictCard from "./DistrictCard";
 
 interface Props {
   districts: districts[];
 }
 
-export const District = ({ districts }: Props) => {
+const District = ({ districts }: Props) => {
   return (
     <div className="flex flex-wrap">
       {districts?.map((districts) => (
@@ -14,3 +14,5 @@ export const District = ({ districts }: Props) => {
     </div>
   );
 };
+
+export default District;

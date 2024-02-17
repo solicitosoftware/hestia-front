@@ -1,11 +1,12 @@
-import { ProductCard, ProductType } from "..";
+import { ProductType } from "../interfaces/product";
 import style from "../styles/ProductStyle.module.css";
+import ProductCard from "./ProductCard";
 
 interface Props {
   products: ProductType[];
 }
 
-export const Product = ({ products }: Props) => {
+const Product = ({ products }: Props) => {
   return (
     <div id="container" className={style.container}>
       {products?.map((product) => (
@@ -14,3 +15,5 @@ export const Product = ({ products }: Props) => {
     </div>
   );
 };
+
+export default Product;

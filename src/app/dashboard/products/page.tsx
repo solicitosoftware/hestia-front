@@ -1,4 +1,5 @@
-import { Product, ProductType } from "@/products";
+import Product from "@/products/components/Product";
+import { ProductType } from "@/products/interfaces/product";
 
 export const metadata = {
   title: "Productos",

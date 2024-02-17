@@ -9,7 +9,7 @@ interface Props {
   district: districts;
 }
 
-export const DistrictCard = ({ district }: Props) => {
+const DistrictCard = ({ district }: Props) => {
   return (
     <Link
       href={`${namePath.pathDistricts}/${district.id}`}
@@ -17,7 +17,6 @@ export const DistrictCard = ({ district }: Props) => {
     >
       <div className={style.container}>
         <div className={style["container-image"]}>
-          {/* <div className={style.gradient} /> */}
           <Image
             className={style.image}
             height={250}
@@ -49,3 +48,5 @@ export const DistrictCard = ({ district }: Props) => {
     </Link>
   );
 };
+
+export default DistrictCard;

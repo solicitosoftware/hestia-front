@@ -1,4 +1,4 @@
-import { District } from "@/districts";
+import District from "@/districts/components/District";
 import prisma from "@/lib/prisma";
 
 export const metadata = {

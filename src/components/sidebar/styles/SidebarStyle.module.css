@@ -23,7 +23,7 @@
 }
 
 .menu-item {
-  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-gradient-to-r from-primary to-success-200 hover:text-white hover:text-base hover:font-semibold rounded-md transition duration-150 ease-in-out;
+  @apply flex text-xs md:text-sm items-center font-medium py-2 px-2 hover:bg-gradient-to-r from-primary to-complement hover:text-white hover:text-base hover:font-semibold rounded-md transition duration-150 ease-in-out;
 }
 
 .menu-title {

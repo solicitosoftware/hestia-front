@@ -1,4 +1,5 @@
-import { Characteristic } from "@/characteristics";
+import Characteristic from "@/characteristics/components/Characteristic";
+import CharacteristicForm from "@/characteristics/components/CharacteristicForm";
 import prisma from "@/lib/prisma";
 
 export const metadata = {
@@ -7,10 +8,13 @@ export const metadata = {
 };
 
 export default async function CharacteristicsPage() {
-  const characteristics = await prisma.characteristics.findMany();
+  const characteristics = await prisma.characteristics.findMany({
+    orderBy: { name: "asc" },
+  });
 
   return (
     <div>
+      <CharacteristicForm />
       <Characteristic characteristics={characteristics} />
     </div>
   );

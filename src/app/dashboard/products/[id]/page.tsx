@@ -1,4 +1,5 @@
-import { ProductCardDetail, ProductType } from "@/products";
+import ProductCardDetail from "@/products/components/ProductCardDetail";
+import { ProductType } from "@/products/interfaces/product";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
