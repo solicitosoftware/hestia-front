@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import { idSchema } from "../../schemas";
 import { districSchema } from "@/districts/schemas";
 

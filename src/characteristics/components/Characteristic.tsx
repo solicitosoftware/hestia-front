@@ -2,12 +2,11 @@
 
 import { characteristics } from "@prisma/client";
 import CharacteristicCard from "./CharacteristicCard";
-import * as characteristicsApi from "@/characteristics/helpers";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/redux/hooks";
 import { removeCharacteristics } from "@/redux/characteristic/characteristicSlice";
-import { updateStateAction } from "../actions/actions";
+import { updateStateAction } from "../actions";
 
 interface Props {
   characteristics: characteristics[];
@@ -21,12 +20,6 @@ const Characteristic = ({ characteristics }: Props) => {
     const inactivos = characteristics.some((x) => !x.active);
     dispatch(removeCharacteristics(inactivos));
   }, [dispatch, characteristics]);
-
-  //TODO Sin server action
-  // const onClick = async (id: number, active: boolean) => {
-  //   await characteristicsApi.updateState(id, active);
-  //   router.refresh();
-  // };
 
   return (
     <div className="flex flex-wrap m-4 gap-4">

@@ -18,9 +18,8 @@ export const characteristicSchema = z
   })
   .partial();
 
-export const formSchema = characteristicSchema.required({
-  name: true,
-  description: true,
-});
+export const formSchema = characteristicSchema
+  .required()
+  .omit({ active: true });
 
 export type characteristicZodType = z.infer<typeof formSchema>;

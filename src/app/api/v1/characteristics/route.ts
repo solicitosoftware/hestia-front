@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import { skipSchema, takeSchema } from "../schemas";
 import { formSchema } from "@/characteristics/schemas";
 

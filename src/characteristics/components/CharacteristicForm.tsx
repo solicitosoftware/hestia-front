@@ -4,15 +4,13 @@ import style from "../styles/CharacteristicForm.module.css";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { characteristicZodType, formSchema } from "../schemas";
-import * as characteristicsApi from "@/characteristics/helpers";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/redux/hooks";
 import { selectCharacteristics } from "@/redux/selectors";
 import {
   createCharacteristicAction,
   removeCharacteristicAction,
-} from "../actions/actions";
+} from "../actions";
 
 const CharacteristicForm = () => {
   const { remove } = useAppSelector(selectCharacteristics);
@@ -31,18 +29,9 @@ const CharacteristicForm = () => {
   });
 
   const onSubmit = (values: characteristicZodType) => {
-    //TODO sin server actions
-    // characteristicsApi.createCharacteristic(values);
-    // router.refresh();
     createCharacteristicAction(values);
     reset();
   };
-
-  //TODO sin server actions
-  // const onDelete = async () => {
-  //   await characteristicsApi.removeCharacteristic();
-  //   router.refresh();
-  // };
 
   return (
     <div className={style.container}>

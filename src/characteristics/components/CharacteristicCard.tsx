@@ -1,3 +1,4 @@
+import { startTransition, useOptimistic } from "react";
 import { characteristics } from "@prisma/client";
 import style from "../styles/Characteristics.module.css";
 import {
@@ -11,11 +12,29 @@ interface Props {
 }
 
 const CharacteristicCard = ({ characteristic, onClick }: Props) => {
+  const [data, setData] = useOptimistic(
+    characteristic,
+    (value, newValue: boolean) => ({ ...value, active: newValue })
+  );
+
+  const changeOptimistic = () => {
+    startTransition(() => setData(!data.active));
+  };
+
+  const onClickOptimistic = () => {
+    try {
+      changeOptimistic();
+      onClick(data.id, !data.active);
+    } catch (error) {
+      changeOptimistic();
+    }
+  };
+
   return (
     <div
-      onClick={() => onClick(characteristic.id, !characteristic.active)}
+      onClick={onClickOptimistic}
       className={`${style.container} ${
-        characteristic.active
+        data.active
           ? "hover:border-lime-300 hover:bg-lime-100"
           : "hover:border-red-300 hover:bg-red-100"
       }`}
@@ -23,21 +42,19 @@ const CharacteristicCard = ({ characteristic, onClick }: Props) => {
       <div>
         <div
           className={`${style.name} ${
-            characteristic.active
-              ? "text-primary"
-              : "text-error-100 line-through"
+            data.active ? "text-primary" : "text-error-100 line-through"
           }`}
         >
-          {characteristic.name}
+          {data.name}
         </div>
-        <div className={style.description}>{characteristic.description}</div>
+        <div className={style.description}>{data.description}</div>
       </div>
       <div
         className={`${style.check} ${
-          characteristic.active ? "bg-success-200" : "bg-error-100"
+          data.active ? "bg-success-200" : "bg-error-100"
         }`}
       >
-        {characteristic.active ? (
+        {data.active ? (
           <MdOutlineCheckBoxOutlineBlank />
         ) : (
           <MdOutlineCheckBox />

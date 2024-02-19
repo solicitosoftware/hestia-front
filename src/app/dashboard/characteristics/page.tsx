@@ -1,3 +1,6 @@
+export const dinamic = "force-dynamic";
+export const revalidate = 0;
+
 import Characteristic from "@/characteristics/components/Characteristic";
 import CharacteristicForm from "@/characteristics/components/CharacteristicForm";
 import prisma from "@/lib/prisma";
