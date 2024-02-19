@@ -19,7 +19,7 @@ const Characteristic = ({ characteristics }: Props) => {
   useEffect(() => {
     const inactivos = characteristics.some((x) => !x.active);
     dispatch(removeCharacteristics(inactivos));
-  }, [characteristics]);
+  }, [dispatch, characteristics]);
 
   const onClick = async (id: number, active: boolean) => {
     await characteristicsApi.updateState(id, active);

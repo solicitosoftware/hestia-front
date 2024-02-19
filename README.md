@@ -64,3 +64,9 @@ The project home page is located at `src/app/page.tsx`.
 Command: prc  Archive: Page.tsx
 Command: rafce Archive: Component.tsx
 ```
+
+# Upgrade packages
+
+```
+Install npm-check-updates
+```
