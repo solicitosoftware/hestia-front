@@ -3,7 +3,7 @@
 }
 
 .name {
-  @apply font-medium text-sm;
+  @apply font-medium capitalize text-sm;
 }
 
 .description {

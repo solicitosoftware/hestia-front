@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { skipSchema, takeSchema } from "../schemas";
 import prisma from "@/lib/prisma";
-import { disttricSchema } from "./schemas";
+import { formSchema } from "@/districts/schemas";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const body = disttricSchema.required().parse(await request.json());
+    const body = formSchema.required().parse(await request.json());
     const result = await prisma.districts.create({ data: body });
 
     return NextResponse.json(result);

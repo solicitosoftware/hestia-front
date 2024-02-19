@@ -1,4 +1,5 @@
 import { characteristics } from "@prisma/client";
+import { characteristicZodType } from "../schemas";
 
 export const updateState = async (
   id: number,
@@ -16,10 +17,10 @@ export const updateState = async (
   return characteristic;
 };
 
-export const createCharacteristic = async (
-  name: string,
-  description: string
-): Promise<characteristics> => {
+export const createCharacteristic = async ({
+  name,
+  description,
+}: characteristicZodType): Promise<characteristics> => {
   const body = { name, description };
   const characteristic = await fetch("/api/v1/characteristics", {
     method: "POST",

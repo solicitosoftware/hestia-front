@@ -10,7 +10,17 @@ const description = z
   .min(1, { message: "Debe tener 1 o más caracteres" })
   .max(20, { message: "No debe superar los 20 caracteres" });
 
-export const formSchema = z.object({
-  name,
-  description,
+export const characteristicSchema = z
+  .object({
+    name,
+    description,
+    active: z.boolean().default(true),
+  })
+  .partial();
+
+export const formSchema = characteristicSchema.required({
+  name: true,
+  description: true,
 });
+
+export type characteristicZodType = z.infer<typeof formSchema>;

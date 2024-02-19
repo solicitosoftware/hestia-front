@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
 import { idSchema } from "../../schemas";
-import { disttricSchema } from "../schemas";
+import { districSchema } from "@/districts/schemas";
 
 interface Segments {
   params: {
@@ -29,7 +29,7 @@ export async function GET(request: Request, { params }: Segments) {
 export async function PUT(request: Request, { params }: Segments) {
   try {
     const id = idSchema.parse(+params.id);
-    const body = disttricSchema.parse(await request.json());
+    const body = districSchema.parse(await request.json());
     const result = await prisma.districts.update({
       where: { id },
       data: body,
