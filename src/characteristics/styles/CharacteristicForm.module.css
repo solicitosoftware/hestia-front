@@ -1,5 +1,5 @@
 .container {
-  @apply max-w-xs sm:max-w-xl lg:max-w-[615px] m-4;
+  @apply flex flex-col md:flex-row justify-between m-4;
 }
 
 .form {
@@ -7,9 +7,17 @@
 }
 
 .input {
-  @apply block p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border border-gray-300 focus-visible:outline-none;
+  @apply block p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border focus-visible:outline-none;
+}
+
+.error {
+  @apply text-xs pt-1 pl-1 lg:w-64 text-error-200;
 }
 
 .button {
-  @apply text-white bg-complement hover:bg-gradient-to-r from-complement to-primary font-medium rounded-md text-sm px-4 py-2 lg:ml-1;
+  @apply max-h-10 text-white bg-complement hover:bg-gradient-to-r from-complement to-primary font-medium rounded-md text-sm px-4 py-2 lg:ml-1;
+}
+
+.delete {
+  @apply flex mt-2 sm:mt-0 sm:ml-2 cursor-pointer justify-center items-center bg-error-200 from-error-100 to-orange-400;
 }

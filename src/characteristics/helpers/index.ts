@@ -31,3 +31,14 @@ export const createCharacteristic = async (
 
   return characteristic;
 };
+
+export const removeCharacteristic = async (): Promise<boolean> => {
+  await fetch("/api/v1/characteristics", {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+    },
+  }).then((res) => res.json());
+
+  return true;
+};

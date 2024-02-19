@@ -4,6 +4,9 @@ import { characteristics } from "@prisma/client";
 import CharacteristicCard from "./CharacteristicCard";
 import * as characteristicsApi from "@/characteristics/helpers";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useAppDispatch } from "@/redux/hooks";
+import { removeCharacteristics } from "@/redux/characteristic/characteristicSlice";
 
 interface Props {
   characteristics: characteristics[];
@@ -11,6 +14,12 @@ interface Props {
 
 const Characteristic = ({ characteristics }: Props) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const inactivos = characteristics.some((x) => !x.active);
+    dispatch(removeCharacteristics(inactivos));
+  }, [characteristics]);
 
   const onClick = async (id: number, active: boolean) => {
     await characteristicsApi.updateState(id, active);

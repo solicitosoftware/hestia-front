@@ -38,9 +38,9 @@ const CharacteristicCard = ({ characteristic, onClick }: Props) => {
         }`}
       >
         {characteristic.active ? (
-          <MdOutlineCheckBox />
-        ) : (
           <MdOutlineCheckBoxOutlineBlank />
+        ) : (
+          <MdOutlineCheckBox />
         )}
       </div>
     </div>

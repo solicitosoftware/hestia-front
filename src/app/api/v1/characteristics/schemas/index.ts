@@ -4,6 +4,6 @@ export const characteristicSchema = z
   .object({
     name: z.string(),
     description: z.string(),
-    active: z.boolean(),
+    active: z.boolean().default(true),
   })
   .partial();
