@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/redux/hooks";
 import { removeCharacteristics } from "@/redux/characteristic/characteristicSlice";
+import { updateStateAction } from "../actions/actions";
 
 interface Props {
   characteristics: characteristics[];
@@ -21,17 +22,19 @@ const Characteristic = ({ characteristics }: Props) => {
     dispatch(removeCharacteristics(inactivos));
   }, [dispatch, characteristics]);
 
-  const onClick = async (id: number, active: boolean) => {
-    await characteristicsApi.updateState(id, active);
-    router.refresh();
-  };
+  //TODO Sin server action
+  // const onClick = async (id: number, active: boolean) => {
+  //   await characteristicsApi.updateState(id, active);
+  //   router.refresh();
+  // };
+
   return (
     <div className="flex flex-wrap m-4 gap-4">
       {characteristics.map((characteristic) => (
         <CharacteristicCard
           key={characteristic.id}
           characteristic={characteristic}
-          onClick={onClick}
+          onClick={updateStateAction}
         />
       ))}
     </div>

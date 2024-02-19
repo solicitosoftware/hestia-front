@@ -2,17 +2,19 @@
 
 import style from "../styles/CharacteristicForm.module.css";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema } from "../schemas";
+import { characteristicZodType, formSchema } from "../schemas";
 import * as characteristicsApi from "@/characteristics/helpers";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/redux/hooks";
 import { selectCharacteristics } from "@/redux/selectors";
+import {
+  createCharacteristicAction,
+  removeCharacteristicAction,
+} from "../actions/actions";
 
 const CharacteristicForm = () => {
-  const router = useRouter();
   const { remove } = useAppSelector(selectCharacteristics);
 
   const {
@@ -20,7 +22,7 @@ const CharacteristicForm = () => {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm<z.infer<typeof formSchema>>({
+  } = useForm<characteristicZodType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -28,16 +30,19 @@ const CharacteristicForm = () => {
     },
   });
 
-  const onSubmit = ({ name, description }: z.infer<typeof formSchema>) => {
-    characteristicsApi.createCharacteristic(name, description);
+  const onSubmit = (values: characteristicZodType) => {
+    //TODO sin server actions
+    // characteristicsApi.createCharacteristic(values);
+    // router.refresh();
+    createCharacteristicAction(values);
     reset();
-    router.refresh();
   };
 
-  const onDelete = async () => {
-    await characteristicsApi.removeCharacteristic();
-    router.refresh();
-  };
+  //TODO sin server actions
+  // const onDelete = async () => {
+  //   await characteristicsApi.removeCharacteristic();
+  //   router.refresh();
+  // };
 
   return (
     <div className={style.container}>
@@ -70,7 +75,10 @@ const CharacteristicForm = () => {
         </button>
       </form>
       {remove && (
-        <div onClick={onDelete} className={`${style.button} ${style.delete}`}>
+        <div
+          onClick={() => removeCharacteristicAction()}
+          className={`${style.button} ${style.delete}`}
+        >
           <RiDeleteBinLine size={18} />
           <p className="pl-1">Eliminar</p>
         </div>
