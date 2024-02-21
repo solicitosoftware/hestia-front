@@ -1,0 +1,27 @@
+.container {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-14;
+}
+
+.card {
+  @apply relative h-48 lg:h-44 flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md;
+}
+
+.background {
+  @apply h-[122px] lg:h-[105px];
+}
+
+.container-image {
+  @apply absolute top-[-10%] left-[5%] z-40 duration-300 w-[90%] h-48 hover:top-[-25%] hover:opacity-[0.9] lg:h-44 bg-gradient-to-t from-primary to-complement rounded-xl justify-items-center align-middle;
+}
+
+.image {
+  @apply w-36 h-36 mt-6 lg:mt-4 m-auto;
+}
+
+.container-title {
+  @apply p-6 z-10 w-full;
+}
+
+.title {
+  @apply mb-2 capitalize inline-block text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased;
+}

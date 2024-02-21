@@ -8,6 +8,8 @@ import { namePath } from "@/app/constants";
 import { useAppDispatch } from "@/redux/hooks";
 import { addProduct } from "@/redux/product/productSlice";
 import { ProductType } from "../interfaces/product";
+import { setCookieProducts } from "@/shopping/actions";
+import { useRouter } from "next/navigation";
 
 interface Props {
   product: ProductType;
@@ -15,9 +17,12 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   const dispatch = useAppDispatch();
+  const route = useRouter();
 
   const addToCart = (product: ProductType) => {
+    setCookieProducts(product.id);
     dispatch(addProduct(product));
+    route.refresh();
   };
 
   return (

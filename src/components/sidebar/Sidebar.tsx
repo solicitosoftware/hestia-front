@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SidebarMenuItem } from "..";
-import style from "./styles/SidebarStyle.module.css";
+import style from "./styles/Sidebar.module.css";
 import { CiFries, CiShoppingCart } from "react-icons/ci";
 import { GrCreditCard } from "react-icons/gr";
 import { LuUserCheck } from "react-icons/lu";

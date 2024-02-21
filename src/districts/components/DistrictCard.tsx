@@ -3,7 +3,6 @@ import style from "../styles/DistrictStyle.module.css";
 import Link from "next/link";
 import { namePath } from "@/app/constants";
 import { districts } from "@prisma/client";
-import city from "../../../public/cityDefault.jpg";
 
 interface Props {
   district: districts;
@@ -21,7 +20,7 @@ const DistrictCard = ({ district }: Props) => {
             className={style.image}
             height={250}
             width={380}
-            src={district.image ?? city.src}
+            src={district.image ?? "/cityDefault.jpg"}
             alt={district.name}
           />
         </div>

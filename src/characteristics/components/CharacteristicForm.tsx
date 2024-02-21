@@ -11,6 +11,7 @@ import {
   createCharacteristicAction,
   removeCharacteristicAction,
 } from "../actions";
+import { Input } from "@/components/input/Input";
 
 const CharacteristicForm = () => {
   const { remove } = useAppSelector(selectCharacteristics);
@@ -22,10 +23,6 @@ const CharacteristicForm = () => {
     reset,
   } = useForm<characteristicZodType>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      description: "",
-    },
   });
 
   const onSubmit = (values: characteristicZodType) => {
@@ -36,41 +33,31 @@ const CharacteristicForm = () => {
   return (
     <div className={style.container}>
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
-        <div>
-          <input
-            type="text"
-            {...register("name")}
-            className={`${
-              errors.name ? "border-error-200" : "border-gray-300"
-            } ${style.input}`}
-            placeholder="Nombre"
-          />
-          <p className={style.error}>{errors.name?.message}</p>
-        </div>
-        <div>
-          <input
-            type="text"
-            {...register("description")}
-            className={`${
-              errors.name ? "border-error-200" : "border-gray-300"
-            } ${style.input}`}
-            placeholder="Descripción"
-          />
-          <p className={style.error}>{errors.description?.message}</p>
-        </div>
-
+        <Input
+          {...register("name")}
+          title="Nombre"
+          type="text"
+          error={errors.name}
+        />
+        <Input
+          {...register("description")}
+          title="Descripción"
+          type="text"
+          error={errors.description}
+        />
         <button type="submit" className={style.button}>
           Crear
         </button>
       </form>
       {remove && (
-        <div
-          onClick={() => removeCharacteristicAction()}
+        <button
+          type="button"
           className={`${style.button} ${style.delete}`}
+          onClick={() => removeCharacteristicAction()}
         >
-          <RiDeleteBinLine size={18} />
-          <p className="pl-1">Eliminar</p>
-        </div>
+          <RiDeleteBinLine size={20} className="pr-1" />
+          Eliminar
+        </button>
       )}
     </div>
   );

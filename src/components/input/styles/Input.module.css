@@ -1,0 +1,7 @@
+.input {
+  @apply block lowercase p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border focus-visible:outline-none;
+}
+
+.error {
+  @apply text-xs pt-1 pl-1 lg:w-64 text-error-200;
+}

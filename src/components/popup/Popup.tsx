@@ -1,4 +1,4 @@
-import style from "./styles/PopupStyle.module.css";
+import style from "./styles/Popup.module.css";
 
 interface Props {
   isVisible: boolean;

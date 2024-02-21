@@ -1,6 +1,6 @@
 import { startTransition, useOptimistic } from "react";
 import { characteristics } from "@prisma/client";
-import style from "../styles/Characteristics.module.css";
+import style from "../styles/Characteristic.module.css";
 import {
   MdOutlineCheckBox,
   MdOutlineCheckBoxOutlineBlank,

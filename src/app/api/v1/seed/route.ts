@@ -59,8 +59,48 @@ export async function GET(request: Request) {
         },
       ],
     });
+
+    await prisma.bookings.deleteMany();
+    await prisma.bookings.createMany({
+      data: [
+        {
+          name: "parqueadero",
+          route: "/services/parking.png",
+          limit: 100,
+        },
+        {
+          name: "bbq",
+          route: "/services/grill.png",
+          limit: 5,
+        },
+        {
+          name: "gimnasio",
+          route: "/services/gym.png",
+          limit: 30,
+        },
+        {
+          name: "piscina",
+          route: "/services/pool.png",
+          limit: 40,
+        },
+        {
+          name: "canchas",
+          route: "/services/courts.png",
+        },
+        {
+          name: "zona wifi",
+          route: "/services/wifi.png",
+        },
+        {
+          name: "video juegos",
+          route: "/services/console.png",
+        },
+      ],
+    });
+
     return NextResponse.json({ message: "Completed" }, { status: 200 });
   } catch (error) {
+    console.log({ error });
     return NextResponse.json({ error }, { status: 400 });
   }
 }

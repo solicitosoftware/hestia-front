@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import style from "./styles/SidebarStyle.module.css";
+import style from "./styles/Sidebar.module.css";
 import { useState } from "react";
 import { Popup } from "../popup/Popup";
 

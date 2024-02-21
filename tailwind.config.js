@@ -7,6 +7,7 @@ module.exports = {
     "./src/products/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/districts/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/characteristics/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/bookings/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
