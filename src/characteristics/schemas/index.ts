@@ -29,6 +29,8 @@ export const characteristicSchema = z
   })
   .partial();
 
+export const apiSchema = characteristicSchema.required();
+
 export const formSchema = characteristicSchema
   .required({ name: true, description: true, typeId: true })
   .omit({ active: true });

@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { skipSchema, takeSchema } from "../schemas";
-import { formSchema } from "@/characteristics/schemas";
+import { apiSchema } from "@/characteristics/schemas";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -22,7 +22,9 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const body = formSchema.parse(await request.json());
+    const body = apiSchema
+      .omit({ active: true, type: true })
+      .parse(await request.json());
     const result = await prisma.characteristics.create({ data: body });
 
     return NextResponse.json(result);

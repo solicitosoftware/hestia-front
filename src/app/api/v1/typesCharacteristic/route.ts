@@ -2,6 +2,8 @@ import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { skipSchema, takeSchema } from "../schemas";
 import { typesSchema } from "@/typesCharacteristic/schemas";
+import { Prisma } from "@prisma/client";
+import { ErrorHandlingPrisma } from "../errors";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -24,16 +26,21 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = typesSchema.parse(await request.json());
-    console.log({ body });
     const result = await prisma.types.create({
       data: {
         name: body.name,
       },
     });
-    console.log({ result });
+
     return NextResponse.json(result);
   } catch (error) {
-    console.error({ error });
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      const errorPrisma = ErrorHandlingPrisma(error);
+      return NextResponse.json(
+        { error: errorPrisma.message },
+        { status: errorPrisma.status }
+      );
+    }
     return NextResponse.json({ error }, { status: 400 });
   }
 }
