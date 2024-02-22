@@ -20,7 +20,7 @@ const Characteristic = ({ characteristics }: Props) => {
   }, [dispatch, characteristics]);
 
   return (
-    <div className="flex flex-wrap m-4 gap-4">
+    <div className="flex flex-wrap gap-4">
       {characteristics.map((characteristic) => (
         <CharacteristicCard
           key={characteristic.id}

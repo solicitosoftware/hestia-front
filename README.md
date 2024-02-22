@@ -27,6 +27,7 @@ yarn dev
 # Prisma Commands
 
 ```
+Documentation: https://www.prisma.io/docs/orm/prisma-schema/data-model
 npx prisma init
 npx prisma migrate dev --name dev
 npx prisma generate
@@ -51,6 +52,10 @@ Command: docker pull postgres:15.3  Version: postgres:15.3
 # Recommended installations
 
 Open [https://gist.github.com/klerith/2d46749155918952b593e952dc7cf5c8](https://gist.github.com/klerith/2d46749155918952b593e952dc7cf5c8)
+
+# Docs
+
+Prisma [https://www.prisma.io/docs/orm/prisma-schema/data-model](https://www.prisma.io/docs/orm/prisma-schema/data-model)
 
 # INIT
 

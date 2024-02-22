@@ -1,0 +1,13 @@
+.primary {
+  @apply flex max-h-10 px-4 py-2 sm:ml-2 lg:ml-1 my-1 md:mb-4 lg:my-0 text-white text-sm bg-complement hover:bg-gradient-to-r from-complement to-primary font-medium rounded-md items-center justify-center;
+}
+
+.delete {
+  @apply primary;
+  @apply bg-error-200 from-error-100 to-orange-400;
+}
+
+.success {
+  @apply primary;
+  @apply bg-green-700 from-green-600 to-lime-500;
+}

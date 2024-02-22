@@ -12,6 +12,7 @@ import {
   removeCharacteristicAction,
 } from "../actions";
 import { Input } from "@/components/input/Input";
+import { Button } from "@/components/botton/Button";
 
 const CharacteristicForm = () => {
   const { remove } = useAppSelector(selectCharacteristics);
@@ -45,19 +46,17 @@ const CharacteristicForm = () => {
           type="text"
           error={errors.description}
         />
-        <button type="submit" className={style.button}>
-          Crear
-        </button>
+        <Button type="submit" styleColor="primary" name="Crear" />
       </form>
       {remove && (
-        <button
+        <Button
           type="button"
-          className={`${style.button} ${style.delete}`}
+          styleColor="delete"
+          name="Eliminar"
           onClick={() => removeCharacteristicAction()}
         >
           <RiDeleteBinLine size={20} className="pr-1" />
-          Eliminar
-        </button>
+        </Button>
       )}
     </div>
   );

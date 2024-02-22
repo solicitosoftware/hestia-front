@@ -18,6 +18,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(function input(
 ) {
   return (
     <div>
+      <label className={style.label}>{title}</label>
       <input
         ref={ref}
         type={type}

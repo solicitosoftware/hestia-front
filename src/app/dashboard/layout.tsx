@@ -8,7 +8,7 @@ export default function DashboardLayout({
   return (
     <div id="container" className="flex">
       <Sidebar />
-      <div className="p-2 w-full">{children}</div>
+      <div className="w-full">{children}</div>
     </div>
   );
 }

@@ -1,7 +1,11 @@
+.label {
+  @apply hidden sm:flex text-xs pl-1 lg:text-sm text-title;
+}
+
 .input {
-  @apply block lowercase p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border focus-visible:outline-none;
+  @apply my-1 p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border focus-visible:outline-none;
 }
 
 .error {
-  @apply text-xs pt-1 pl-1 lg:w-64 text-error-200;
+  @apply md:h-5 lg:h-3 md:mb-2 text-xs pl-1 lg:w-64 text-error-200;
 }

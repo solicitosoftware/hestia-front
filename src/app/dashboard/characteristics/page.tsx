@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+import styles from "../../styles/dashboard.module.css";
 import Characteristic from "@/characteristics/components/Characteristic";
 import CharacteristicForm from "@/characteristics/components/CharacteristicForm";
 import prisma from "@/lib/prisma";
@@ -16,7 +17,7 @@ export default async function CharacteristicsPage() {
   });
 
   return (
-    <div>
+    <div id="characteristics" className={styles.page}>
       <CharacteristicForm />
       <Characteristic characteristics={characteristics} />
     </div>
