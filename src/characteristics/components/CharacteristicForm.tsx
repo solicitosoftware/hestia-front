@@ -13,12 +13,23 @@ import {
 } from "../actions";
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/botton/Button";
+import { types } from "@prisma/client";
+import { SelectInput } from "@/components/select/Select";
+import { useEffect } from "react";
 
-const CharacteristicForm = () => {
+interface Props {
+  types: types[];
+}
+
+const CharacteristicForm = ({ types }: Props) => {
   const { remove } = useAppSelector(selectCharacteristics);
 
   const {
+    control,
     register,
+    watch,
+    setValue,
+    setError,
     formState: { errors },
     handleSubmit,
     reset,
@@ -26,25 +37,44 @@ const CharacteristicForm = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (values: characteristicZodType) => {
-    createCharacteristicAction(values);
+  const onSubmit = ({ name, description, typeId }: characteristicZodType) => {
+    createCharacteristicAction({ name, description, typeId });
     reset();
   };
+
+  useEffect(() => {
+    if (watch("type")) {
+      const id = Number(watch("type")?.value);
+      setValue("typeId", id);
+      setError("typeId", {});
+    }
+  }, [watch("type")]);
 
   return (
     <div className={style.container}>
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <Input
           {...register("name")}
-          title="Nombre"
+          label="Nombre"
           type="text"
           error={errors.name}
         />
         <Input
           {...register("description")}
-          title="Descripción"
+          label="Descripción"
           type="text"
           error={errors.description}
+        />
+        <SelectInput
+          label="Tipo"
+          control={control}
+          name="type"
+          defaultValue={watch("type")}
+          error={errors.typeId}
+          options={types.map(({ id, name }) => ({
+            value: id,
+            label: name,
+          }))}
         />
         <Button type="submit" styleColor="primary" name="Crear" />
       </form>

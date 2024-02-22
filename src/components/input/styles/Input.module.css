@@ -1,7 +1,3 @@
-.label {
-  @apply hidden sm:flex text-xs pl-1 lg:text-sm text-title;
-}
-
 .input {
   @apply my-1 p-2 pl-3 w-full text-sm text-title bg-gray-50 rounded-md border focus-visible:outline-none;
 }

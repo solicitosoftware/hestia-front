@@ -1,0 +1,3 @@
+.select {
+  @apply my-1 text-sm text-title rounded-md border md:min-w-36;
+}

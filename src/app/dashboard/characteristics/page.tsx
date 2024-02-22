@@ -16,9 +16,13 @@ export default async function CharacteristicsPage() {
     orderBy: { name: "asc" },
   });
 
+  const types = await prisma.types.findMany({
+    orderBy: { name: "asc" },
+  });
+
   return (
     <div id="characteristics" className={styles.page}>
-      <CharacteristicForm />
+      <CharacteristicForm types={types} />
       <Characteristic characteristics={characteristics} />
     </div>
   );

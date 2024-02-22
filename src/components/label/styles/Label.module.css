@@ -1,0 +1,3 @@
+.label {
+  @apply hidden sm:flex text-xs pl-1 lg:text-sm text-title;
+}

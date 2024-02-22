@@ -10,19 +10,27 @@ const description = z
   .min(1, { message: "Debe tener 1 o más caracteres" })
   .max(20, { message: "No debe superar los 20 caracteres" });
 
-const typeId = z.number();
+const typeId = z.number({
+  required_error: "Debe seleccionar un tipo",
+});
+
+const type = z.object({
+  value: typeId,
+  label: z.string(),
+});
 
 export const characteristicSchema = z
   .object({
     name,
     description,
     typeId,
+    type,
     active: z.boolean().default(true),
   })
   .partial();
 
 export const formSchema = characteristicSchema
-  .required()
+  .required({ name: true, description: true, typeId: true })
   .omit({ active: true });
 
 export type characteristicZodType = z.infer<typeof formSchema>;
