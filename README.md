@@ -27,7 +27,6 @@ yarn dev
 # Prisma Commands
 
 ```
-Documentation: https://www.prisma.io/docs/orm/prisma-schema/data-model
 npx prisma init
 npx prisma migrate dev --name dev
 npx prisma generate
@@ -37,7 +36,7 @@ IMPORTANTE !!
 
 ```
 npx prisma db pull (Only if the DB already exists to download the models)
-npx prisma db push (always the structure of the DB changes)
+ (always the structure of the DB changes)
 ```
 
 # Recommended versions
@@ -56,6 +55,8 @@ Open [https://gist.github.com/klerith/2d46749155918952b593e952dc7cf5c8](https://
 # Docs
 
 Prisma [https://www.prisma.io/docs/orm/prisma-schema/data-model](https://www.prisma.io/docs/orm/prisma-schema/data-model)
+
+Zod [https://zod.dev/?id=basic-usage](https://zod.dev/?id=basic-usage)
 
 # INIT
 

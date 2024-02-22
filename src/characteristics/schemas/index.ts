@@ -10,10 +10,13 @@ const description = z
   .min(1, { message: "Debe tener 1 o más caracteres" })
   .max(20, { message: "No debe superar los 20 caracteres" });
 
+const typeId = z.number();
+
 export const characteristicSchema = z
   .object({
     name,
     description,
+    typeId,
     active: z.boolean().default(true),
   })
   .partial();
