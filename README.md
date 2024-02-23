@@ -29,16 +29,16 @@ yarn dev
 # Prisma Commands
 
 ```
-npx prisma init
-npx prisma migrate dev --name dev
-npx prisma generate
+yarn prisma init
+yarn prisma migrate dev --name dev
+yarn prisma generate
 ```
 
 IMPORTANTE !!
 
 ```
-npx prisma db pull (Only if the DB already exists to download the models)
-npx prisma db push (always the structure of the DB changes)
+yarn prisma db pull (Only if the DB already exists to download the models)
+yarn prisma db push (always the structure of the DB changes)
 ```
 
 # Recommended versions
