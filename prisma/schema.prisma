@@ -87,6 +87,7 @@ model session {
 model user {
   id            String    @id @default(uuid())
   name          String
+  password      String?
   email         String    @unique
   emailVerified DateTime?
   image         String?

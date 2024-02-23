@@ -3,21 +3,8 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import { Adapter } from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
-
-const addRolUser = async (userId: string) => {
-  const rol = await prisma.roles.findUnique({
-    where: { name: "Invitado" },
-  });
-
-  await prisma.user.update({
-    where: { id: userId },
-    data: {
-      roles: {
-        connect: { id: rol?.id! },
-      },
-    },
-  });
-};
+import CredentialsProvider from "next-auth/providers/credentials";
+import { addRolUser, signInEmailPassword } from "./actions";
 
 const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
@@ -25,6 +12,30 @@ const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: {
+          label: "Correo electrónico",
+          type: "text",
+          placeholder: "usuario@hestia.com",
+        },
+        password: {
+          label: "Contraseña",
+          type: "password",
+          placeholder: "**********",
+        },
+      },
+      async authorize(credentials, req) {
+        const user = await signInEmailPassword(
+          credentials!.email,
+          credentials!.password
+        );
+
+        if (user) return user;
+        return null;
+      },
     }),
   ],
 
