@@ -1,11 +1,9 @@
 import prisma from "@/lib/prisma";
+import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   try {
-    //Users
-    await prisma.user.deleteMany();
-
     //Roles
     await prisma.roles.deleteMany();
     await prisma.roles.createMany({
@@ -25,10 +23,22 @@ export async function GET(request: Request) {
         {
           name: "Compañia",
         },
-        {
-          name: "Super Administrador",
-        },
       ],
+    });
+
+    //Users
+    await prisma.user.deleteMany();
+    await prisma.user.create({
+      data: {
+        name: "Hestia",
+        email: process.env.HESTIA_CLIENT_ID!,
+        password: bcryptjs.hashSync(process.env.HESTIA_CLIENT_SECRET!),
+        roles: {
+          create: {
+            name: "Super Administrador",
+          },
+        },
+      },
     });
 
     //Types

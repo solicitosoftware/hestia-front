@@ -5,3 +5,7 @@
 .form {
   @apply flex flex-col gap-2 lg:gap-4 md:items-center md:flex-row md:mr-2;
 }
+
+.button {
+  @apply flex md:pb-3 lg:pb-0;
+}

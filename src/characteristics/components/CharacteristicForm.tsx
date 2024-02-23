@@ -84,12 +84,12 @@ const CharacteristicForm = ({ types }: Props) => {
             label: name,
           }))}
         />
-        <div className="flex md:pb-3">
+        <div className={style.button}>
           <Button type="submit" styleColor="primary" name="Crear" />
         </div>
       </form>
       {true && (
-        <div className="flex md:pb-3">
+        <div className={style.button}>
           <Button
             type="button"
             styleColor="delete"

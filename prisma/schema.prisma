@@ -23,7 +23,7 @@ model characteristics {
   updatedAt   DateTime @updatedAt @map("updated_at")
   active      Boolean  @default(true)
   typeId      Int
-  type        types    @relation(fields: [typeId], references: [id])
+  type        types    @relation(fields: [typeId], references: [id], onDelete: Cascade)
 
   @@unique([name, description, typeId])
 }

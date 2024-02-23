@@ -4,9 +4,9 @@ import bcryptjs from "bcryptjs";
 import { getServerSession } from "next-auth";
 import authOptions from "../authOptions";
 
-export const addRolUser = async (userId: string) => {
+export const addRolUser = async (userId: string, nameRol?: string) => {
   const rol = await prisma.roles.findUnique({
-    where: { name: "Invitado" },
+    where: { name: nameRol ?? "Invitado" },
   });
 
   await prisma.user.update({
