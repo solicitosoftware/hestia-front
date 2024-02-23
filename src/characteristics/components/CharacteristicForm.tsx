@@ -15,7 +15,7 @@ import { Input } from "@/components/input/Input";
 import { Button } from "@/components/botton/Button";
 import { types } from "@prisma/client";
 import { SelectInput } from "@/components/select/Select";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 interface Props {
   types: types[];
@@ -62,18 +62,21 @@ const CharacteristicForm = ({ types }: Props) => {
           {...register("name")}
           label="Nombre"
           type="text"
+          required
           error={errors.name}
         />
         <Input
           {...register("description")}
           label="Descripción"
           type="text"
+          required
           error={errors.description}
         />
         <SelectInput
           label="Tipo"
           control={control}
           name="type"
+          required
           defaultValue={watch("type")}
           error={errors.typeId}
           options={types.map(({ id, name }) => ({

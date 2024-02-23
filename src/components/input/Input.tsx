@@ -8,15 +8,16 @@ interface Props {
   label: string;
   type: "text" | "number" | "";
   error?: FieldError | undefined;
+  required?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, Props>(function input(
-  { label, type, error, ...inputProps },
+  { label, type, required, error, ...inputProps },
   ref
 ) {
   return (
     <div>
-      <Label>{label}</Label>
+      <Label required={required}>{label}</Label>
       <input
         ref={ref}
         type={type}

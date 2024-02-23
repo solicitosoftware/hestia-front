@@ -2,14 +2,13 @@ import { Sidebar } from "@/components";
 import Link from "next/link";
 import { namePath } from "./constants";
 import style from "./styles/NotFoundStyle.module.css";
-import { getServerSession } from "next-auth";
-import authOptions from "./api/auth/[...nextauth]/authOptions";
+import { getuserSesion } from "./api/auth/[...nextauth]/actions";
 
 export default async function NotFound() {
-  const sesion = await getServerSession(authOptions);
+  const user = await getuserSesion();
   return (
     <div id="container" className="flex">
-      <Sidebar sesion={sesion} />
+      <Sidebar user={user} />
       <main className={style.container}>
         <h1 className={style.error}>404</h1>
         <div className={style.message}>Page Not Found</div>

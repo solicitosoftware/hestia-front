@@ -19,20 +19,20 @@ const type = z.object({
   label: z.string(),
 });
 
+const active = z.boolean().default(true);
+
 export const characteristicSchema = z
   .object({
     name,
     description,
     typeId,
     type,
-    active: z.boolean().default(true),
+    active,
   })
-  .partial();
-
-export const apiSchema = characteristicSchema.required();
+  .required();
 
 export const formSchema = characteristicSchema
-  .required({ name: true, description: true, typeId: true })
+  .partial({ type: true })
   .omit({ active: true });
 
 export type characteristicZodType = z.infer<typeof formSchema>;

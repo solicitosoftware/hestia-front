@@ -11,6 +11,7 @@ import { Label } from "../label/Label";
 
 interface Props {
   label: string;
+  required?: boolean;
   options: { value: number | string; label: string }[];
   error?: FieldError | undefined;
   defaultValue: { value: number | string; label: string } | undefined;
@@ -19,7 +20,8 @@ interface Props {
 export const SelectInput = <T extends FieldValues>(
   props: UseControllerProps<T> & Props
 ) => {
-  const { options, label, defaultValue, error, ...controllerProps } = props;
+  const { options, label, defaultValue, required, error, ...controllerProps } =
+    props;
   const {
     field: { onChange },
   } = useController(controllerProps);
@@ -35,7 +37,7 @@ export const SelectInput = <T extends FieldValues>(
 
   return (
     <div>
-      <Label>{label}</Label>
+      <Label required={required}>{label}</Label>
       <Select
         className={`${
           error?.message ? "border-error-200" : "border-gray-300"

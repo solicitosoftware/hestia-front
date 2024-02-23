@@ -49,7 +49,7 @@ const authOptions: NextAuthOptions = {
         where: { email: user.email! },
       });
 
-      if (!userdb?.isActive) {
+      if (userdb && !userdb?.isActive) {
         return false;
       }
       return true;

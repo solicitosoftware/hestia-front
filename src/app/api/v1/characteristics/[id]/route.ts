@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { idSchema } from "../../schemas";
-import { apiSchema } from "@/characteristics/schemas";
+import { characteristicSchema } from "@/characteristics/schemas";
 
 interface Segments {
   params: {
@@ -29,7 +29,9 @@ export async function GET(request: Request, { params }: Segments) {
 export async function PUT(request: Request, { params }: Segments) {
   try {
     const id = idSchema.parse(+params.id);
-    const body = apiSchema.omit({ type: true }).parse(await request.json());
+    const body = characteristicSchema
+      .omit({ type: true })
+      .parse(await request.json());
     const result = await prisma.characteristics.update({
       where: { id },
       data: body,

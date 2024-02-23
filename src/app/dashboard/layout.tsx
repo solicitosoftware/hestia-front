@@ -1,23 +1,22 @@
-import { getServerSession } from "next-auth";
 import { Sidebar } from "../../components";
 import { redirect } from "next/navigation";
 import { namePath } from "../constants";
-import authOptions from "../api/auth/[...nextauth]/authOptions";
+import { getuserSesion } from "../api/auth/[...nextauth]/actions";
 
 export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const sesion = await getServerSession(authOptions);
+  const user = await getuserSesion();
 
-  if (!sesion) {
+  if (!user) {
     redirect(namePath.pathlogin);
   }
 
   return (
     <div id="container" className="flex">
-      <Sidebar sesion={sesion} />
+      <Sidebar user={user} />
       <div className="w-full">{children}</div>
     </div>
   );

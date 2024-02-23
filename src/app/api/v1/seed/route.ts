@@ -3,19 +3,57 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   try {
-    const result = await prisma.roles.create({
-      data: {
-        name: "Propietario",
-        user: {
-          create: [
-            { name: "Usuario prueba", email: "car.yho@yopmail.com" },
-            { name: "Daniel Meneses", email: "daniel@yopmail.com" },
-          ],
+    //Users
+    await prisma.user.deleteMany();
+
+    //Roles
+    await prisma.roles.deleteMany();
+    await prisma.roles.createMany({
+      data: [
+        {
+          name: "Invitado",
         },
-      },
+        {
+          name: "Residente",
+        },
+        {
+          name: "Propietario",
+        },
+        {
+          name: "Administrador",
+        },
+        {
+          name: "Compañia",
+        },
+        {
+          name: "Super Administrador",
+        },
+      ],
     });
 
-    return NextResponse.json(result);
+    //Types
+    await prisma.types.deleteMany();
+    await prisma.types.createMany({
+      data: [
+        {
+          name: "Apartamento",
+        },
+        {
+          name: "Unidad Res.",
+        },
+        {
+          name: "Condominio",
+        },
+      ],
+    });
+
+    //Characteristics
+    await prisma.characteristics.deleteMany();
+
+    //Companies
+    await prisma.companies.deleteMany();
+
+    return NextResponse.json({ message: "Completed" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 400 });
   }
