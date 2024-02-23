@@ -1,4 +1,5 @@
 interface NamePathType {
+  pathlogin: string;
   pathMain: string;
   pathDistricts: string;
   pathProducts: string;
@@ -10,6 +11,7 @@ interface NamePathType {
 }
 
 export const namePath: NamePathType = {
+  pathlogin: "/api/auth/signin",
   pathMain: "/dashboard/main",
   pathDistricts: "/dashboard/districts",
   pathProducts: "/dashboard/products",

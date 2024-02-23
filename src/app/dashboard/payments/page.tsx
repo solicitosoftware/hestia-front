@@ -1,8 +1,8 @@
-import styles from "../../styles/dashboard.module.css";
+import style from "../../styles/dashboard.module.css";
 
 export default function PaymentsPage() {
   return (
-    <div id="payments" className={styles.page}>
+    <div id="payments" className={style.page}>
       <h1>Hello Page Pagos</h1>
     </div>
   );

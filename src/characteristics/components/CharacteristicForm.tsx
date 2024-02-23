@@ -15,7 +15,7 @@ import { Input } from "@/components/input/Input";
 import { Button } from "@/components/botton/Button";
 import { types } from "@prisma/client";
 import { SelectInput } from "@/components/select/Select";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 interface Props {
   types: types[];
@@ -43,12 +43,17 @@ const CharacteristicForm = ({ types }: Props) => {
   };
 
   useEffect(() => {
-    if (watch("type")) {
-      const id = Number(watch("type")?.value);
-      setValue("typeId", id);
-      setError("typeId", {});
-    }
-  }, [watch("type")]);
+    const subscription = watch(({ type }, { name }) => {
+      if (name === "type") {
+        const id = Number(type?.value);
+        if (id) {
+          setValue("typeId", id);
+          setError("typeId", {});
+        }
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, setValue, setError]);
 
   return (
     <div className={style.container}>

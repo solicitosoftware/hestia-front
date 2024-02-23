@@ -22,11 +22,13 @@ export const updateStateAction = async (
   return result;
 };
 
-export const createCharacteristicAction = async (
-  data: characteristicZodType
-): Promise<characteristics> => {
+export const createCharacteristicAction = async ({
+  name,
+  description,
+  typeId,
+}: characteristicZodType): Promise<characteristics> => {
   const result = await prisma.characteristics.create({
-    data,
+    data: { name, description, typeId },
   });
 
   revalidatePath(namePath.pathCharacteristics);

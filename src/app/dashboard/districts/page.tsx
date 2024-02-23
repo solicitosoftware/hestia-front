@@ -1,4 +1,4 @@
-import styles from "../../styles/dashboard.module.css";
+import style from "../../styles/dashboard.module.css";
 import District from "@/districts/components/District";
 import prisma from "@/lib/prisma";
 
@@ -11,7 +11,7 @@ export default async function DistrictsPage() {
   const districts = await prisma.districts.findMany();
 
   return (
-    <div id="districts" className={styles.page}>
+    <div id="districts" className={style.page}>
       <District districts={districts} />
     </div>
   );
