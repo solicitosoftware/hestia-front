@@ -18,7 +18,9 @@ yarn
 
 3. Replace environment variables
 4. Run commands Prisma
-5. Run the development server:
+5. Connect Bd Postman
+6. Run Seed API
+7. Run the development server:
 
 ```
 yarn dev

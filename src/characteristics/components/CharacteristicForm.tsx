@@ -84,17 +84,21 @@ const CharacteristicForm = ({ types }: Props) => {
             label: name,
           }))}
         />
-        <Button type="submit" styleColor="primary" name="Crear" />
+        <div className="flex md:pb-3">
+          <Button type="submit" styleColor="primary" name="Crear" />
+        </div>
       </form>
-      {remove && (
-        <Button
-          type="button"
-          styleColor="delete"
-          name="Eliminar"
-          onClick={() => removeCharacteristicAction()}
-        >
-          <RiDeleteBinLine size={20} className="pr-1" />
-        </Button>
+      {true && (
+        <div className="flex md:pb-3">
+          <Button
+            type="button"
+            styleColor="delete"
+            name="Eliminar"
+            onClick={() => removeCharacteristicAction()}
+          >
+            <RiDeleteBinLine size={20} className="pr-1" />
+          </Button>
+        </div>
       )}
     </div>
   );

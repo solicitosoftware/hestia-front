@@ -1,7 +1,7 @@
 .container {
-  @apply flex md:items-center flex-col md:flex-row justify-between mb-5 md:mr-2;
+  @apply flex flex-col md:flex-row justify-between mb-5 md:mb-0 md:items-center;
 }
 
 .form {
-  @apply flex md:items-center flex-col gap-2 lg:gap-4 sm:flex-row;
+  @apply flex flex-col gap-2 lg:gap-4 md:items-center md:flex-row md:mr-2;
 }
