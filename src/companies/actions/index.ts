@@ -1,3 +1,5 @@
+"use server";
+
 import prisma from "@/lib/prisma";
 import { companiesZodType } from "../schemas";
 import { revalidatePath } from "next/cache";

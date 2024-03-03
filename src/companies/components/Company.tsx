@@ -1,10 +1,18 @@
-import CompanyForm from "./CompanyForm";
+import CompanyCard from "./CompanyCard";
+import { companies } from "@prisma/client";
+import style from "../styles/Company.module.css";
 
-const Company = () => {
+interface Props {
+  companies: companies[];
+}
+
+const Company = ({ companies }: Props) => {
   return (
-    <div>
-      <CompanyForm />
-    </div>
+    <ul className={style.container}>
+      {companies.map((company) => (
+        <CompanyCard key={company.id} company={company} />
+      ))}
+    </ul>
   );
 };
 

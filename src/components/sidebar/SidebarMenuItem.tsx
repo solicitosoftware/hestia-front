@@ -15,13 +15,16 @@ export const SidebarMenuItem = ({ path, title, icon }: MenuItemProps) => {
   const currentPath = usePathname();
   const [popupInfo, setPopupInfo] = useState({
     isVisible: false,
-    position: 0,
+    position: {
+      y: 0,
+      x: 0,
+    },
   });
 
   const handleMouseEnter = (event: any) => {
     if (window.innerWidth < 768) {
       const rect = event.target.getBoundingClientRect();
-      const position = rect.top - 6;
+      const position = { y: rect.y - 6, x: rect.x + 32 };
       setPopupInfo({
         isVisible: true,
         position,
@@ -47,6 +50,7 @@ export const SidebarMenuItem = ({ path, title, icon }: MenuItemProps) => {
       <Popup
         title={title}
         isVisible={popupInfo.isVisible}
+        pointer
         position={popupInfo.position}
       />
     </div>

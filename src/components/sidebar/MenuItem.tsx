@@ -25,39 +25,39 @@ export const menuItems = [
     title: "Usuarios",
     icon: <FiUsers size={20} />,
   },
-  // {
-  //   path: namePath.pathDistricts,
-  //   title: "Zonas",
-  //   icon: <VscCompass size={20} />,
-  // },
-  // {
-  //   path: namePath.pathProducts,
-  //   title: "Productos",
-  //   icon: <CiFries size={20} />,
-  // },
-  // {
-  //   path: namePath.pathShopping,
-  //   title: "Compras",
-  //   icon: <CiShoppingCart size={20} />,
-  // },
-  // {
-  //   path: namePath.pathApartments,
-  //   title: "Apartamentos",
-  //   icon: <BsBuildings size={20} />,
-  // },
+  {
+    path: namePath.pathDistricts,
+    title: "Zonas",
+    icon: <VscCompass size={20} />,
+  },
+  {
+    path: namePath.pathProducts,
+    title: "Productos",
+    icon: <CiFries size={20} />,
+  },
+  {
+    path: namePath.pathShopping,
+    title: "Compras",
+    icon: <CiShoppingCart size={20} />,
+  },
+  {
+    path: namePath.pathApartments,
+    title: "Apartamentos",
+    icon: <BsBuildings size={20} />,
+  },
   {
     path: namePath.pathCharacteristics,
     title: "Caracteristicas",
     icon: <TbSitemap size={20} />,
   },
-  // {
-  //   path: namePath.pathPayments,
-  //   title: "Pagos",
-  //   icon: <GrCreditCard size={20} />,
-  // },
-  // {
-  //   path: namePath.pathBookings,
-  //   title: "Reservas",
-  //   icon: <LuUserCheck size={20} />,
-  // },
+  {
+    path: namePath.pathPayments,
+    title: "Pagos",
+    icon: <GrCreditCard size={20} />,
+  },
+  {
+    path: namePath.pathBookings,
+    title: "Reservas",
+    icon: <LuUserCheck size={20} />,
+  },
 ];

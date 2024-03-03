@@ -88,7 +88,7 @@ const CharacteristicForm = ({ types }: Props) => {
           <Button type="submit" styleColor="primary" name="Crear" />
         </div>
       </form>
-      {true && (
+      {remove && (
         <div className={style.button}>
           <Button
             type="button"
