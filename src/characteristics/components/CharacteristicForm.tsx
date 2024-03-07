@@ -4,7 +4,6 @@ import style from "../styles/CharacteristicForm.module.css";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { characteristicZodType, formSchema } from "../schemas";
-import { RiDeleteBinLine } from "react-icons/ri";
 import { useAppSelector } from "@/redux/hooks";
 import { selectCharacteristics } from "@/redux/selectors";
 import {
@@ -16,6 +15,8 @@ import { Button } from "@/components/botton/Button";
 import { types } from "@prisma/client";
 import { SelectInput } from "@/components/select/Select";
 import { useEffect } from "react";
+import { TbSitemap } from "react-icons/tb";
+import { AiOutlineDelete } from "react-icons/ai";
 
 interface Props {
   types: types[];
@@ -85,7 +86,9 @@ const CharacteristicForm = ({ types }: Props) => {
           }))}
         />
         <div className={style.button}>
-          <Button type="submit" styleColor="primary" name="Crear" />
+          <Button type="submit" styleColor="primary" name="Crear">
+            <TbSitemap size={20} className="pr-1" />
+          </Button>
         </div>
       </form>
       {remove && (
@@ -96,7 +99,7 @@ const CharacteristicForm = ({ types }: Props) => {
             name="Eliminar"
             onClick={() => removeCharacteristicAction()}
           >
-            <RiDeleteBinLine size={20} className="pr-1" />
+            <AiOutlineDelete size={20} className="pr-1" />
           </Button>
         </div>
       )}

@@ -39,7 +39,7 @@ const CompanyForm = () => {
         type="button"
         onClick={handleModal}
         styleColor="primary"
-        name="Crear compañia"
+        name="Crear"
       >
         <PiFactoryBold className="pr-2" size={25} />
       </Button>

@@ -1,8 +1,8 @@
 import { companies } from "@prisma/client";
 import Link from "next/link";
 import style from "../styles/Company.module.css";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { FaRegEdit } from "react-icons/fa";
+import { AiOutlineDelete } from "react-icons/ai";
+import { GoPencil } from "react-icons/go";
 
 interface Props {
   company: companies;
@@ -20,10 +20,10 @@ const CompanyCard = ({ company }: Props) => {
           <p className={style.address}>Dirección: {company.address}</p>
         </div>
         <div className={style.icons}>
-          <FaRegEdit className="cursor-pointer" size={15} />
-          <RiDeleteBinLine
+          <GoPencil className="cursor-pointer" size={15} />
+          <AiOutlineDelete
             className="cursor-pointer"
-            size={15}
+            size={16}
             color="#D44421"
           />
         </div>

@@ -3,5 +3,5 @@
 }
 
 .error {
-  @apply md:h-5 lg:h-3 md:mb-2 text-xs pl-1 lg:w-64 text-error-200;
+  @apply md:h-5 lg:h-3 md:mb-3 text-xs pl-1 lg:w-64 text-error-200;
 }
