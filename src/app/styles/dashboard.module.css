@@ -2,14 +2,6 @@
   @apply flex flex-col h-screen p-5;
 }
 
-.header {
-  @apply bg-white flex justify-between p-2 rounded-t-md;
-}
-
-.body {
-  @apply bg-white flex justify-center items-center h-full pt-2;
-}
-
-.footer {
-  @apply flex justify-end p-2 rounded-b-md;
+.empty {
+  @apply flex justify-center p-5 lg:h-screen lg:p-0 lg:items-center;
 }

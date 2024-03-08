@@ -3,11 +3,11 @@ import { redirect } from "next/navigation";
 import { namePath } from "../constants";
 import { getuserSesion } from "../api/auth/[...nextauth]/actions";
 
-export default async function DashboardLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode;
-}) {
+}
+
+export default async function DashboardLayout({ children }: Props) {
   const user = await getuserSesion();
 
   if (!user) {

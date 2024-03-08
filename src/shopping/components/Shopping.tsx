@@ -17,7 +17,7 @@ export const Shopping = ({ shop, products }: Props) => {
 
   const getShops = (): ProductType[] => {
     const productShop = Object.keys(shop);
-    return products.filter((x) => productShop.includes(x.id));
+    return products?.filter((x) => productShop.includes(x.id));
   };
 
   return <Product products={getShops()} />;

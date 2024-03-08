@@ -12,7 +12,7 @@ export const Pagination = ({ active, pages }: Props) => {
     let result = new Set<ReactNode>();
     for (let index = 1; index <= pages; index++) {
       result.add(
-        <li>
+        <li key={`page_${index}`}>
           <Link
             className={`${style.number} ${
               active === index ? "bg-complement text-white" : "text-title"

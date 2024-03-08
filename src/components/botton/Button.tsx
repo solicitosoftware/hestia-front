@@ -1,11 +1,10 @@
 import style from "./styles/Button.module.css";
-import { ReactNode } from "react";
 
 interface Props {
   name: string;
   type: "submit" | "reset" | "button";
   styleColor: "primary" | "delete" | "success" | "clear";
-  children?: ReactNode;
+  children?: React.ReactNode;
   onClick?: () => void;
 }
 

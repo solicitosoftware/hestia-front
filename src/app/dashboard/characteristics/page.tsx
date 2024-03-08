@@ -1,10 +1,12 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+import Empty from "@/app/empty";
 import style from "../../styles/dashboard.module.css";
 import Characteristic from "@/characteristics/components/Characteristic";
 import CharacteristicForm from "@/characteristics/components/CharacteristicForm";
 import prisma from "@/lib/prisma";
+import { TbSitemap } from "react-icons/tb";
 
 export const metadata = {
   title: "Caracteristicas",
@@ -23,7 +25,11 @@ export default async function CharacteristicsPage() {
   return (
     <div id="characteristics" className={style.page}>
       <CharacteristicForm types={types} />
-      <Characteristic characteristics={characteristics} />
+      {characteristics.length > 0 ? (
+        <Characteristic characteristics={characteristics} />
+      ) : (
+        <Empty title="caracteristicas" icon={<TbSitemap size={50} />} />
+      )}
     </div>
   );
 }
