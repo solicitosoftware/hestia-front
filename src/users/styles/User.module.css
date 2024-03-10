@@ -1,9 +1,5 @@
-.container {
-  @apply overflow-hidden rounded-lg border border-gray-200 shadow-md m-5;
-}
-
 .container-table {
-  @apply border border-gray-200 shadow-md;
+  @apply max-w-[286px] md:max-w-[536px] lg:max-w-none border border-gray-200 shadow-md;
 }
 
 .table-space {

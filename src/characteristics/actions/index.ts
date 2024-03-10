@@ -6,6 +6,19 @@ import { characteristics } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { characteristicZodType } from "../schemas";
 
+export const createCharacteristicAction = async ({
+  name,
+  description,
+  typeId,
+}: characteristicZodType): Promise<characteristics> => {
+  const result = await prisma.characteristics.create({
+    data: { name, description, typeId },
+  });
+
+  revalidatePath(namePath.pathCharacteristics);
+  return result;
+};
+
 export const updateStateAction = async (
   id: number,
   active: boolean
@@ -16,19 +29,6 @@ export const updateStateAction = async (
   const result = await prisma.characteristics.update({
     where: { id },
     data: { active },
-  });
-
-  revalidatePath(namePath.pathCharacteristics);
-  return result;
-};
-
-export const createCharacteristicAction = async ({
-  name,
-  description,
-  typeId,
-}: characteristicZodType): Promise<characteristics> => {
-  const result = await prisma.characteristics.create({
-    data: { name, description, typeId },
   });
 
   revalidatePath(namePath.pathCharacteristics);

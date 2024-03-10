@@ -11,8 +11,7 @@ const nit = z
   .max(11, { message: "No debe superar los 11 caracteres" })
   .refine((value) => /^\d+$/.test(value), {
     message: "Solo números",
-  })
-  .transform((val) => val.slice(0, -1) + "-" + val.slice(-1));
+  });
 
 const email = z.string().email({ message: "Correo electrónico invalido" });
 
@@ -21,7 +20,9 @@ const phone = z
   .refine((val) => val.length <= 10, {
     message: "No debe superar los 10 caracteres",
   })
-  .transform((val) => Number(val))
+  .refine((value) => /^\d+$/.test(value), {
+    message: "Solo números",
+  })
   .nullable();
 
 const address = z

@@ -39,6 +39,12 @@ export const SelectInput = <T extends FieldValues>(
     <div>
       <Label required={required}>{label}</Label>
       <Select
+        styles={{
+          option: (base) => ({
+            ...base,
+            cursor: "pointer",
+          }),
+        }}
         className={`${
           error?.message ? "border-error-200" : "border-gray-300"
         } ${style.select}`}

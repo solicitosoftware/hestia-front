@@ -3,18 +3,27 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { companiesZodType, formSchema } from "../schemas";
 import { useForm } from "react-hook-form";
-import { createCompanyAction } from "../actions";
+import { createCompanyAction, updateCompanyAction } from "../actions";
 import style from "../styles/CompanyForm.module.css";
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/botton/Button";
 import { Modal } from "flowbite-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiFactoryBold } from "react-icons/pi";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectCompanies } from "@/redux/selectors";
+import { clearCompany } from "@/redux/companies/companiesSlice";
 
 const CompanyForm = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const company = useAppSelector(selectCompanies);
+  const { id } = company;
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [data, setData] = useState<boolean>(false);
+
+  const dispatch = useAppDispatch();
 
   const {
+    setValue,
     register,
     formState: { errors },
     handleSubmit,
@@ -24,28 +33,48 @@ const CompanyForm = () => {
   });
 
   const onSubmit = (company: companiesZodType) => {
-    createCompanyAction(company);
-    handleModal();
-    reset();
+    if (data) updateCompanyAction(id, company);
+    else createCompanyAction(company);
+    onClose();
   };
 
-  const handleModal = () => {
-    setOpenModal((state) => !state);
+  useEffect(() => {
+    setData(Object.values(company).length > 0);
+  }, [company]);
+
+  useEffect(() => {
+    if (data) {
+      const phone =
+        Number(company.phone) !== 0 ? company.phone!.toString() : null;
+      setValues({ ...company, phone });
+      onOpen();
+    }
+  }, [data]);
+
+  const setValues = (company: companiesZodType) => {
+    Object.entries(company).forEach(([key, value]) =>
+      setValue(key as keyof companiesZodType, value)
+    );
+  };
+
+  const onOpen = () => {
+    setOpenModal(true);
+  };
+
+  const onClose = () => {
+    setOpenModal(false);
+    dispatch(clearCompany());
+    reset();
   };
 
   return (
     <div className={style.container}>
-      <Button
-        type="button"
-        onClick={handleModal}
-        styleColor="primary"
-        name="Crear"
-      >
+      <Button type="button" onClick={onOpen} styleColor="primary" name="Crear">
         <PiFactoryBold className="pr-2" size={25} />
       </Button>
       <form>
-        <Modal size={"4xl"} dismissible show={openModal} onClose={handleModal}>
-          <Modal.Header>Crear Compañia</Modal.Header>
+        <Modal size={"4xl"} dismissible show={openModal} onClose={onClose}>
+          <Modal.Header>{`${data ? "Editar" : "Crear"} Compañia`}</Modal.Header>
           <Modal.Body>
             <div className={style.form}>
               <Input
@@ -60,6 +89,7 @@ const CompanyForm = () => {
                 label="NIT"
                 type="text"
                 required
+                disabled={data}
                 error={errors.nit}
               />
               <Input
@@ -91,11 +121,11 @@ const CompanyForm = () => {
                 onClick={handleSubmit(onSubmit)}
                 type="submit"
                 styleColor="primary"
-                name="Crear"
+                name={`${data ? "Actualizar" : "Crear"}`}
               />
               <Button
                 type="button"
-                onClick={handleModal}
+                onClick={onClose}
                 styleColor="clear"
                 name="Cancelar"
               />

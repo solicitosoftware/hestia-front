@@ -1,27 +1,41 @@
+"use client";
+
 import { companies } from "@prisma/client";
 import Link from "next/link";
 import style from "../styles/Company.module.css";
 import { AiOutlineDelete } from "react-icons/ai";
 import { GoPencil } from "react-icons/go";
+import { useAppDispatch } from "@/redux/hooks";
+import { setCompany } from "@/redux/companies/companiesSlice";
+import { removeCompanyAction } from "../actions";
 
 interface Props {
   company: companies;
 }
 
 const CompanyCard = ({ company }: Props) => {
+  const dispatch = useAppDispatch();
+
   return (
     <li className={style.list}>
       <div className={style.information}>
         <div className={style["container-data"]}>
           <div className={style.data}>
             <h3 className={style.name}>{company.name}</h3>
-            <span className={style.nit}>Nit: {company.nit}</span>
+            <span className={style.nit}>
+              Nit: {company.nit.slice(0, -1) + "-" + company.nit.slice(-1)}
+            </span>
           </div>
           <p className={style.address}>Dirección: {company.address}</p>
         </div>
         <div className={style.icons}>
-          <GoPencil className="cursor-pointer" size={15} />
+          <GoPencil
+            onClick={() => dispatch(setCompany(company))}
+            className="cursor-pointer"
+            size={15}
+          />
           <AiOutlineDelete
+            onClick={() => removeCompanyAction(company.id)}
             className="cursor-pointer"
             size={16}
             color="#D44421"

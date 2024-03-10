@@ -9,10 +9,11 @@ interface Props {
   type: "text" | "number" | "";
   error?: FieldError | undefined;
   required?: boolean;
+  disabled?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, Props>(function input(
-  { label, type, required, error, ...inputProps },
+  { label, type, required, disabled, error, ...inputProps },
   ref
 ) {
   return (
@@ -21,6 +22,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(function input(
       <input
         ref={ref}
         type={type}
+        disabled={disabled}
         {...inputProps}
         className={`${error ? "border-error-200" : "border-gray-300"} ${
           style.input
