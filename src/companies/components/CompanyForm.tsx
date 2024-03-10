@@ -52,13 +52,13 @@ const CompanyForm = () => {
   }, [company]);
 
   useEffect(() => {
-    if (data) {
+    if (Object.values(company).length > 0) {
       const phone =
         Number(company.phone) !== 0 ? company.phone!.toString() : null;
       setValues({ ...company, phone });
       onOpen();
     }
-  }, [setValues, data, company]);
+  }, [setValues, company]);
 
   const onOpen = () => {
     setOpenModal(true);
