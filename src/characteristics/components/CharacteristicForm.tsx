@@ -4,8 +4,8 @@ import style from "../styles/CharacteristicForm.module.css";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { characteristicZodType, formSchema } from "../schemas";
-import { useAppSelector } from "@/redux/hooks";
-import { selectCharacteristics } from "@/redux/selectors";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectCharacteristicsRemove } from "@/redux/selectors";
 import {
   createCharacteristicAction,
   removeCharacteristicAction,
@@ -17,13 +17,15 @@ import { SelectInput } from "@/components/select/Select";
 import { useEffect } from "react";
 import { TbSitemap } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
+import { removeCharacteristics } from "@/redux/characteristic/characteristicSlice";
 
 interface Props {
   types: types[];
 }
 
 const CharacteristicForm = ({ types }: Props) => {
-  const { remove } = useAppSelector(selectCharacteristics);
+  const dispatch = useAppDispatch();
+  const remove = useAppSelector(selectCharacteristicsRemove);
 
   const {
     control,
@@ -41,6 +43,11 @@ const CharacteristicForm = ({ types }: Props) => {
   const onSubmit = ({ name, description, typeId }: characteristicZodType) => {
     createCharacteristicAction({ name, description, typeId });
     reset();
+  };
+
+  const onRemove = () => {
+    removeCharacteristicAction();
+    dispatch(removeCharacteristics(false));
   };
 
   useEffect(() => {
@@ -97,7 +104,7 @@ const CharacteristicForm = ({ types }: Props) => {
             type="button"
             styleColor="delete"
             name="Eliminar"
-            onClick={() => removeCharacteristicAction()}
+            onClick={() => onRemove()}
           >
             <AiOutlineDelete size={20} className="pr-1" />
           </Button>

@@ -8,7 +8,7 @@ import style from "../styles/CompanyForm.module.css";
 import { Input } from "@/components/input/Input";
 import { Button } from "@/components/botton/Button";
 import { Modal } from "flowbite-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { PiFactoryBold } from "react-icons/pi";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectCompanies } from "@/redux/selectors";
@@ -38,6 +38,15 @@ const CompanyForm = () => {
     onClose();
   };
 
+  const setValues = useCallback(
+    (company: companiesZodType) => {
+      Object.entries(company).forEach(([key, value]) =>
+        setValue(key as keyof companiesZodType, value)
+      );
+    },
+    [setValue]
+  );
+
   useEffect(() => {
     setData(Object.values(company).length > 0);
   }, [company]);
@@ -49,13 +58,7 @@ const CompanyForm = () => {
       setValues({ ...company, phone });
       onOpen();
     }
-  }, [data]);
-
-  const setValues = (company: companiesZodType) => {
-    Object.entries(company).forEach(([key, value]) =>
-      setValue(key as keyof companiesZodType, value)
-    );
-  };
+  }, [setValues, data, company]);
 
   const onOpen = () => {
     setOpenModal(true);

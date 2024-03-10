@@ -1,12 +1,12 @@
 import { characteristics } from "@prisma/client";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-interface ProductState {
+interface CharacteristicsState {
   value: characteristics[];
   remove: boolean;
 }
 
-const initialState: ProductState = {
+const initialState: CharacteristicsState = {
   value: [] as characteristics[],
   remove: false,
 };

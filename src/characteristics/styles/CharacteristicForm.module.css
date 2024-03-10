@@ -3,7 +3,7 @@
 }
 
 .form {
-  @apply flex flex-col gap-2 lg:gap-4 md:items-center md:flex-row md:mr-2 md:mb-2;
+  @apply flex flex-col gap-2 lg:gap-4 md:items-center md:flex-row md:mr-2 md:mb-0;
 }
 
 .button {
