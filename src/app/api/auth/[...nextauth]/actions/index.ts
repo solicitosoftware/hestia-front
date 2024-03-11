@@ -1,4 +1,3 @@
-import { userZodType } from "@/app/api/v1/schemas";
 import prisma from "@/lib/prisma";
 import bcryptjs from "bcryptjs";
 import { getServerSession } from "next-auth";

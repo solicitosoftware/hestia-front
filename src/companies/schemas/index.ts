@@ -9,7 +9,7 @@ const nit = z
   .string()
   .min(11, { message: "Debe tener 11 caracteres" })
   .max(11, { message: "No debe superar los 11 caracteres" })
-  .refine((value) => /^\d+$/.test(value), {
+  .refine((value) => /^[0-9]+$/.test(value), {
     message: "Solo números",
   });
 
@@ -17,11 +17,24 @@ const email = z.string().email({ message: "Correo electrónico invalido" });
 
 const phone = z
   .string()
-  .refine((val) => val.length <= 10, {
-    message: "No debe superar los 10 caracteres",
-  })
-  .refine((value) => /^\d+$/.test(value), {
-    message: "Solo números",
+  .superRefine((val, ctx) => {
+    if (val.length > 10) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.too_big,
+        maximum: 10,
+        type: "string",
+        inclusive: true,
+        message: "No debe superar los 10 caracteres",
+      });
+    }
+    if (val !== "" && !/^[0-9]+$/.test(val)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.invalid_type,
+        expected: "number",
+        received: "string",
+        message: `Solo números.`,
+      });
+    }
   })
   .nullable();
 
@@ -42,6 +55,8 @@ export const companiesSchema = z
   })
   .required();
 
-export const formSchema = companiesSchema;
+export const formSchema = companiesSchema.partial({
+  phone: true,
+});
 
 export type companiesZodType = z.infer<typeof formSchema>;

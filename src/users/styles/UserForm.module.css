@@ -3,7 +3,7 @@
 }
 
 .form {
-  @apply grid my-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-3 md:gap-y-0 lg:gap-y-3;
+  @apply grid my-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-5 gap-y-3 md:gap-y-0 lg:gap-y-3;
 }
 
 .button {

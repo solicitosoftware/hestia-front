@@ -12,9 +12,9 @@ import { Label } from "../label/Label";
 interface Props {
   label: string;
   required?: boolean;
-  options: { value: number | string; label: string }[];
+  options: { value: number | string | boolean; label: string }[];
   error?: FieldError | undefined;
-  defaultValue: { value: number | string; label: string } | undefined;
+  defaultValue: { value: number | string | boolean; label: string } | undefined;
 }
 
 export const SelectInput = <T extends FieldValues>(

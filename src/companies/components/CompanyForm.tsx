@@ -105,7 +105,7 @@ const CompanyForm = () => {
               <Input
                 {...register("phone")}
                 label="Telefono"
-                type="number"
+                type="tel"
                 error={errors.phone}
               />
               <div className="w-full">

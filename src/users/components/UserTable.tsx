@@ -5,11 +5,28 @@ import { GoPencil } from "react-icons/go";
 import { AiOutlineDelete } from "react-icons/ai";
 
 interface Props {
-  data: users[];
+  users: users[];
   title: string[];
 }
 
-const UserTable = ({ data, title }: Props) => {
+const UserTable = ({ users, title }: Props) => {
+  const colorRole = (role: string) => {
+    switch (role) {
+      case "Administrador":
+        return "bg-blue-50 text-complement";
+      case "Compañia":
+        return "bg-gray-100 text-gray-500";
+      case "Propietario":
+        return "bg-indigo-50 text-indigo-500";
+      case "Residente":
+        return "bg-green-50 text-green-500";
+      case "Invitado":
+        return "bg-red-50 text-error-200";
+      default:
+        return "bg-cyan-50 text-primary";
+    }
+  };
+
   return (
     <div className={style["table-space"]}>
       <table className={style.table}>
@@ -23,17 +40,15 @@ const UserTable = ({ data, title }: Props) => {
           </tr>
         </thead>
         <tbody className={style.body}>
-          {data.map((user) => (
+          {users.map((user) => (
             <tr key={user.id} className={style.selected}>
               <th className={style.items}>
                 <div className={style["container-image"]}>
                   <Image
                     className={style.image}
-                    src={
-                      user?.image ??
-                      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    }
+                    src={user?.image ?? "/hestiaLogo.png"}
                     alt="Avatar user"
+                    placeholder="empty"
                     priority
                     width={40}
                     height={40}
@@ -68,7 +83,10 @@ const UserTable = ({ data, title }: Props) => {
               <td className={style.space}>
                 <div className="flex gap-2">
                   {user.roles.map((role) => (
-                    <span key={role.id} className={style.role}>
+                    <span
+                      key={role.id}
+                      className={`${style.role} ${colorRole(role.name)}`}
+                    >
                       {role.name}
                     </span>
                   ))}

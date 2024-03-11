@@ -6,7 +6,7 @@ import { Label } from "../label/Label";
 
 interface Props {
   label: string;
-  type: "text" | "number" | "";
+  type: "text" | "number" | "email" | "password" | "tel" | "";
   error?: FieldError | undefined;
   required?: boolean;
   disabled?: boolean;

@@ -21,15 +21,17 @@ export default async function UsersPage() {
 
   const usersFilter = users?.filter((x) => x.id != user?.id);
 
+  const roles = await prisma.roles.findMany();
+
   return usersFilter.length > 0 ? (
     <div id="users" className={style.page}>
-      <UserForm />
+      <UserForm roles={roles} />
       <User users={usersFilter} />
     </div>
   ) : (
     <div id="empty" className={style.empty}>
       <Empty title="usuarios" icon={<FiUsers size={50} />}>
-        <UserForm />
+        <UserForm roles={roles} />
       </Empty>
     </div>
   );

@@ -12,7 +12,7 @@ const tableItems = ["Usuarios", "Estado", "Roles", "Acciones"];
 const User = ({ users }: Props) => {
   return (
     <div className={style["container-table"]}>
-      <UserTable data={users} title={tableItems} />
+      <UserTable users={users} title={tableItems} />
       <Pagination pages={3} active={1} />
     </div>
   );
