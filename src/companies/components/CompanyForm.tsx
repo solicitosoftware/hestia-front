@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { createCompanyAction, updateCompanyAction } from "../actions";
 import style from "../styles/CompanyForm.module.css";
 import { Input } from "@/components/input/Input";
-import { Button } from "@/components/botton/Button";
+import { Button } from "@/components/button/Button";
 import { Modal } from "flowbite-react";
 import { useEffect, useState, useCallback } from "react";
 import { PiFactoryBold } from "react-icons/pi";

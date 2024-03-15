@@ -1,5 +1,5 @@
 import { Pagination } from "@/components";
-import { users } from "../schemas";
+import { users } from "../interfaces";
 import style from "../styles/User.module.css";
 import UserTable from "./UserTable";
 

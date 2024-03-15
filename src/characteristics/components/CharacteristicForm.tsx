@@ -11,7 +11,7 @@ import {
   removeCharacteristicAction,
 } from "../actions";
 import { Input } from "@/components/input/Input";
-import { Button } from "@/components/botton/Button";
+import { Button } from "@/components/button/Button";
 import { types } from "@prisma/client";
 import { SelectInput } from "@/components/select/Select";
 import { useEffect } from "react";

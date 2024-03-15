@@ -1,20 +1,18 @@
-import { Sidebar } from "@/components";
 import Link from "next/link";
 import { namePath } from "./constants";
 import style from "./styles/NotFoundStyle.module.css";
-import { getuserSesion } from "./api/auth/[...nextauth]/actions";
+import styleButton from "@/components/button/styles/Button.module.css";
 
 export default async function NotFound() {
-  const user = await getuserSesion();
   return (
     <div id="container" className="flex">
-      <Sidebar user={user} />
       <main className={style.container}>
-        <h1 className={style.error}>404</h1>
-        <div className={style.message}>Page Not Found</div>
+        <h1 className={style.error}>ERROR</h1>
+        <h1 className={style.code}>404</h1>
+        <div className={style.message}>Pagina no encontrada</div>
         <div className={style["button-container"]}>
-          <button className={style.button}>
-            <Link href={namePath.pathMain}>Ir al Inicio</Link>
+          <button className={styleButton.delete}>
+            <Link href={namePath.pathMain}>Volver atrás</Link>
           </button>
         </div>
       </main>

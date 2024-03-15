@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { users } from "../schemas";
+import { users } from "../interfaces";
 import style from "../styles/User.module.css";
 import { GoPencil } from "react-icons/go";
 import { AiOutlineDelete } from "react-icons/ai";

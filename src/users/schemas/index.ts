@@ -1,14 +1,4 @@
 import { z } from "zod";
-import { roles } from "@prisma/client";
-
-export interface users {
-  id: string;
-  name: string;
-  email: string;
-  image: string | null;
-  isActive: boolean;
-  roles: roles[];
-}
 
 const name = z.string().min(4, { message: "Debe tener 4 o más caracteres" });
 const identification = z

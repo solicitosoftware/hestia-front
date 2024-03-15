@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import style from "../styles/UserForm.module.css";
-import { Button } from "@/components/botton/Button";
+import { Button } from "@/components/button/Button";
 import { Modal } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";

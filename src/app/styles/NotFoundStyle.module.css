@@ -1,19 +1,19 @@
 .container {
-  @apply h-screen w-full flex flex-col justify-center items-center;
+  @apply h-screen w-full flex flex-col justify-center items-center text-white bg-gradient-to-b from-primary to-complement opacity-85;
 }
 
 .error {
-  @apply text-9xl font-extrabold text-slate-300 tracking-widest;
+  @apply text-xl font-extrabold tracking-widest;
+}
+
+.code {
+  @apply text-9xl font-extrabold tracking-widest;
 }
 
 .message {
-  @apply bg-[#FF6A3D] text-white px-2 text-base rounded rotate-12 absolute;
+  @apply bg-error-100 px-4 text-base rounded rotate-12 absolute;
 }
 
 .button-container {
-  @apply mt-5 text-center text-white font-semibold;
-}
-
-.button {
-  @apply px-8 py-3 bg-primary rounded-md;
+  @apply text-center font-semibold mt-2;
 }
