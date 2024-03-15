@@ -1,4 +1,4 @@
-import style from "../../styles/dashboard.module.css";
+import style from "@dashboard/styles/dashboard.module.css";
 import District from "@/districts/components/District";
 import prisma from "@/lib/prisma";
 

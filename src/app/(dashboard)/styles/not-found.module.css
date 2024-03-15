@@ -1,0 +1,19 @@
+.container {
+  @apply h-screen w-full flex flex-col justify-center items-center opacity-85;
+}
+
+.error {
+  @apply text-xl font-extrabold text-slate-400 tracking-widest;
+}
+
+.code {
+  @apply text-9xl font-extrabold text-slate-400 tracking-widest;
+}
+
+.message {
+  @apply bg-error-200 text-white px-2 text-base rounded rotate-12 absolute;
+}
+
+.button-container {
+  @apply mt-5 text-center text-white font-semibold;
+}

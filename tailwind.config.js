@@ -26,6 +26,10 @@ module.exports = {
           200: "#AFCE2D",
         },
       },
+      maxWidth: {
+        mobile: "17.8rem",
+        tablet: "33.5rem",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],

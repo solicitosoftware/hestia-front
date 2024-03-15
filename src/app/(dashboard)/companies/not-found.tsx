@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { namePath } from "./constants";
-import style from "@/app/styles/not-found.module.css";
+import style from "@dashboard/styles/not-found.module.css";
 import styleButton from "@/components/button/styles/Button.module.css";
+import { namePath } from "@app/constants";
 
 export default function NotFound() {
   return (
@@ -9,10 +9,10 @@ export default function NotFound() {
       <main className={style.container}>
         <h1 className={style.error}>ERROR</h1>
         <h1 className={style.code}>404</h1>
-        <div className={style.message}>Pagina no encontrada</div>
+        <div className={style.message}>Compañia no encontrada</div>
         <div className={style["button-container"]}>
-          <button className={styleButton.delete}>
-            <Link href={namePath.pathMain}>Ir al inicio</Link>
+          <button className={styleButton.primary}>
+            <Link href={namePath.pathCompanies}>Volver atrás</Link>
           </button>
         </div>
       </main>

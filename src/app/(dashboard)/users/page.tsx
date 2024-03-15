@@ -1,5 +1,5 @@
 import User from "@/users/components/User";
-import style from "../../styles/dashboard.module.css";
+import style from "@dashboard/styles/dashboard.module.css";
 import prisma from "@/lib/prisma";
 import UserForm from "@/users/components/UserForm";
 import { getuserSesion } from "@/app/api/auth/[...nextauth]/actions";

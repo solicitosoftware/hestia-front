@@ -40,7 +40,7 @@ export const SidebarMenuItem = ({ path, title, icon }: MenuItemProps) => {
       <Link
         href={path}
         className={`${style["menu-item"]}
-      ${currentPath === path ? "text-cyan-600" : "text-gray-600"}`}
+      ${currentPath.includes(path) ? "text-cyan-600" : "text-gray-600"}`}
       >
         <div id="menu-icon">{icon}</div>
         <span id="menu-title" className={style["menu-title"]}>

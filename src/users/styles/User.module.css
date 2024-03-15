@@ -1,5 +1,5 @@
 .container-table {
-  @apply max-w-[286px] md:max-w-[536px] lg:max-w-none border border-gray-200 shadow-md;
+  @apply max-w-mobile md:max-w-tablet lg:max-w-none border border-gray-200 shadow-md;
 }
 
 .table-space {

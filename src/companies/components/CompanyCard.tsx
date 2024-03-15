@@ -8,6 +8,7 @@ import { GoPencil } from "react-icons/go";
 import { useAppDispatch } from "@/redux/hooks";
 import { setCompany } from "@/redux/companies/companiesSlice";
 import { removeCompanyAction } from "../actions";
+import { namePath } from "@/app/constants";
 
 interface Props {
   company: companies;
@@ -20,12 +21,14 @@ const CompanyCard = ({ company }: Props) => {
     <li className={style.list}>
       <div className={style.information}>
         <div className={style["container-data"]}>
-          <div className={style.data}>
-            <h3 className={style.name}>{company.name}</h3>
-            <span className={style.nit}>
-              Nit: {company.nit.slice(0, -1) + "-" + company.nit.slice(-1)}
-            </span>
-          </div>
+          <Link prefetch href={`${namePath.pathCompanies}/${company.id}`}>
+            <div className={style.data}>
+              <h3 className={style.name}>{company.name}</h3>
+              <span className={style.nit}>
+                Nit: {company.nit.slice(0, -1) + "-" + company.nit.slice(-1)}
+              </span>
+            </div>
+          </Link>
           <p className={style.address}>Dirección: {company.address}</p>
         </div>
         <div className={style.icons}>
@@ -78,7 +81,7 @@ const CompanyCard = ({ company }: Props) => {
                 clipRule="evenodd"
               />
             </svg>
-            Telefono
+            Teléfono
           </Link>
         </div>
       </div>

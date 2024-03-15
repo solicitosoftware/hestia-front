@@ -1,5 +1,5 @@
 import Company from "@/companies/components/Company";
-import style from "../../styles/dashboard.module.css";
+import style from "@dashboard/styles/dashboard.module.css";
 import prisma from "@/lib/prisma";
 import CompanyForm from "@/companies/components/CompanyForm";
 import { PiFactoryBold } from "react-icons/pi";

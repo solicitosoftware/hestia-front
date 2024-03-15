@@ -1,0 +1,59 @@
+.container {
+  @apply bg-no-repeat bg-cover bg-center;
+}
+
+.background {
+  @apply absolute bg-gradient-to-b from-primary to-complement opacity-70 inset-0 z-0;
+}
+
+.screen {
+  @apply min-h-screen flex flex-col md:flex-row mx-0 justify-center;
+}
+
+.grid {
+  @apply flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl z-10;
+}
+
+.greting {
+  @apply self-start hidden lg:flex flex-col  text-white;
+}
+
+.title {
+  @apply mb-3 font-bold text-5xl;
+}
+
+.description {
+  @apply pr-3 text-justify font-medium;
+}
+
+.login {
+  @apply flex justify-center self-center z-10;
+}
+
+.image-hestia {
+  @apply px-12 pb-10 bg-white mx-auto rounded-2xl flex flex-col items-center;
+}
+
+.google {
+  @apply w-full block bg-white hover:bg-gray-50 text-title rounded-lg p-2 border border-gray-300;
+}
+
+.image-google {
+  @apply flex items-center justify-center gap-2;
+}
+
+.separator {
+  @apply flex items-center justify-center space-x-2 my-2 text-gray-300;
+}
+
+.line {
+  @apply h-px w-16 bg-gray-200;
+}
+
+.form {
+  @apply flex flex-col items-center mb-3;
+}
+
+.link {
+  @apply text-xs text-title hover:text-complement;
+}
