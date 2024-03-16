@@ -5,8 +5,9 @@ import Empty from "@/app/empty";
 import style from "@dashboard/styles/dashboard.module.css";
 import Characteristic from "@/characteristics/components/Characteristic";
 import CharacteristicForm from "@/characteristics/components/CharacteristicForm";
-import prisma from "@/lib/prisma";
 import { TbSitemap } from "react-icons/tb";
+import { getCharacteristicsAction } from "@/characteristics/actions";
+import { getTypesAction } from "@/typesCharacteristic/actions";
 
 export const metadata = {
   title: "Caracteristicas",
@@ -14,13 +15,9 @@ export const metadata = {
 };
 
 export default async function CharacteristicsPage() {
-  const characteristics = await prisma.characteristics.findMany({
-    orderBy: { name: "asc" },
-  });
+  const characteristics = await getCharacteristicsAction();
 
-  const types = await prisma.types.findMany({
-    orderBy: { name: "asc" },
-  });
+  const types = await getTypesAction();
 
   return (
     <div id="characteristics" className={style.page}>

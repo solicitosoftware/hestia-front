@@ -2,6 +2,10 @@
   @apply px-5 py-5 bg-white rounded-b-lg flex flex-col items-center;
 }
 
-.number {
+.navigation {
+  @apply flex gap-2;
+}
+
+.options {
   @apply flex h-9 w-9 mx-1 p-0 text-sm shadow-md border border-blue-100 items-center justify-center rounded-full transition duration-150 ease-in-out hover:bg-gray-50 hover:text-title;
 }

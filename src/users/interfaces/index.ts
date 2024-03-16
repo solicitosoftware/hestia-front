@@ -8,3 +8,9 @@ export interface users {
   isActive: boolean;
   roles: roles[];
 }
+
+export interface usersPagination {
+  users: users[];
+  currentPage: number;
+  totalPage: number;
+}

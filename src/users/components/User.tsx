@@ -1,19 +1,15 @@
 import { Pagination } from "@/components";
-import { users } from "../interfaces";
+import { usersPagination } from "../interfaces";
 import style from "../styles/User.module.css";
 import UserTable from "./UserTable";
 
-interface Props {
-  users: users[];
-}
-
 const tableItems = ["Usuarios", "Estado", "Roles", "Acciones"];
 
-const User = ({ users }: Props) => {
+const User = ({ users, totalPage, currentPage }: usersPagination) => {
   return (
     <div className={style["container-table"]}>
       <UserTable users={users} title={tableItems} />
-      <Pagination pages={3} active={1} />
+      <Pagination totalPage={totalPage} currentPage={currentPage} />
     </div>
   );
 };

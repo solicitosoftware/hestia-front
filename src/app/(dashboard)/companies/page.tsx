@@ -1,9 +1,9 @@
 import Company from "@/companies/components/Company";
 import style from "@dashboard/styles/dashboard.module.css";
-import prisma from "@/lib/prisma";
 import CompanyForm from "@/companies/components/CompanyForm";
 import { PiFactoryBold } from "react-icons/pi";
 import Empty from "@/app/empty";
+import { getCompaniesAction } from "@/companies/actions";
 
 export const metadata = {
   title: "Compañias",
@@ -11,9 +11,7 @@ export const metadata = {
 };
 
 export default async function CompaniesPage() {
-  const companies = await prisma.companies.findMany({
-    orderBy: { name: "asc" },
-  });
+  const companies = await getCompaniesAction();
 
   return companies.length ? (
     <div id="companies" className={style.page}>

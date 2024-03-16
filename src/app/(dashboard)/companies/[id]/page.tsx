@@ -1,8 +1,8 @@
 import style from "@dashboard/styles/dashboard.module.css";
-import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import CompanyCardDetail from "@/companies/components/CompanyCardDetail";
 import { Metadata } from "next";
+import { getCompanyAction } from "@/companies/actions";
 
 interface Props {
   params: { id: string };
@@ -10,9 +10,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = params;
-  const company = await prisma.companies.findUnique({
-    where: { id: Number(id) },
-  });
+  const company = await getCompanyAction(id);
 
   if (!company) {
     return {
@@ -28,9 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const getCompany = async (id: string) => {
-  const company = await prisma.companies.findUnique({
-    where: { id: Number(id) },
-  });
+  const company = await getCompanyAction(id);
 
   if (!company) notFound();
   return company;

@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { users } from "../interfaces";
 import style from "../styles/User.module.css";
 import { GoPencil } from "react-icons/go";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useSearchParams } from "next/navigation";
 
 interface Props {
   users: users[];
@@ -10,6 +13,8 @@ interface Props {
 }
 
 const UserTable = ({ users, title }: Props) => {
+  const searchParams = useSearchParams();
+
   const colorRole = (role: string) => {
     switch (role) {
       case "Administrador":

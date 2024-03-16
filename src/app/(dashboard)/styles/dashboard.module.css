@@ -1,5 +1,5 @@
 .page {
-  @apply flex flex-col h-screen p-5;
+  @apply flex flex-col min-h-screen h-auto p-5;
 }
 
 .empty {
