@@ -15,7 +15,7 @@ export default async function DashboardLayout({ children }: Props) {
   }
 
   return (
-    <div id="container" className="flex w-full h-full">
+    <div id="container" className="flex w-full h-screen">
       <Sidebar user={user} />
       <div className="w-full">{children}</div>
     </div>
